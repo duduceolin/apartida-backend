@@ -8,4 +8,10 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+  <modules>
+    <module>ISPO-EJB</module>
+    <module>ISPO-BEAN</module>
+    <module>ISPO-ENTITY</module>
+    <module>ISPO-EAR</module>
+  </modules>
 </project>
