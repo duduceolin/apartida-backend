@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+             xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+                                 http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+    <!-- Set up the XA Database Driver -->
+    <persistence-unit name="IsportsXA" transaction-type="JTA">
+        <!-- Specify the JPA provider to use -->
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+
+        <jta-data-source>jdbc/distribuicaoSobrasDS</jta-data-source>
+
+        <!-- Enables auto discovery of persistent classes -->
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+
+    </persistence-unit>
+
+    <!-- Set up the Non-XA Database Driver -->
+    <persistence-unit name="IsportsNOXA" transaction-type="JTA">
+        <!-- Specify the JPA provider to use -->
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+
+        <jta-data-source>jdbc/distribuicaoSobrasDSNoXA</jta-data-source>
+
+        <!-- Enables auto discovery of persistent classes -->
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+
+    </persistence-unit>
+
+</persistence>

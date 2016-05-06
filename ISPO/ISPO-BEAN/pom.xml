@@ -6,6 +6,8 @@
         <artifactId>ISPO</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+    
     <artifactId>ISPO-BEAN</artifactId>
-    <packaging>pom</packaging>
+    <name>ISPO-BEAN</name>
+    
 </project>

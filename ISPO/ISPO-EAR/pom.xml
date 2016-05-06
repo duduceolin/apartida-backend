@@ -6,10 +6,46 @@
         <artifactId>ISPO</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+    
+    <!-- Sem groupId ou version. Eles foram herdados do pai -->
     <artifactId>ISPO-EAR</artifactId>
     <packaging>ear</packaging>
+    <name>ISPO-EAR</name>
+    
     <properties>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
     </properties>
+    
+    
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>ISPO-EJB</artifactId>
+            <version>${project.version}</version>
+            <type>ejb</type>
+        </dependency>
+    </dependencies>
+
+    <!-- Build Settings -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>2.9.1</version>
+                <configuration>
+                    <version>6</version>
+                    <defaultLibBundleDir>lib</defaultLibBundleDir>
+                    <modules>
+                        <ejbModule>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>ISPO-EJB</artifactId> <!-- herdado de dependencies -->
+                        </ejbModule>
+                    </modules>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>

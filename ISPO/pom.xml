@@ -5,13 +5,94 @@
     <artifactId>ISPO</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+    
     <properties>
+        <!-- Set default encoding to UTF-8 (most plugins) -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Set compiler source and target versions (m-compiler-p) -->
+        <maven.compiler.target>1.7</maven.compiler.target>
+        <maven.compiler.source>${maven.compiler.target}</maven.compiler.source>
+
     </properties>
+    
+  
+    <!-- Centraliza as informações de dependência, simplificando as referências nos filhos -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>javax</groupId>
+                <artifactId>javaee-api</artifactId>
+                <version>6.0</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>4.0</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- Build Settings -->
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- Start Core Plugins -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.3</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>2.7</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-ejb-plugin</artifactId>
+                    <version>2.5</version>
+                    <configuration>
+                        <ejbVersion>3.1</ejbVersion>
+                    </configuration>
+                </plugin>
+
+                <!-- End Core plugins -->
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <!-- Environment Settings -->
+    <profiles>
+        <profile>
+            <id>build</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <modules>
+                <!--<module>ISPO-EJB</module>-->
+                <module>ISPO-BEAN</module>
+                <module>ISPO-ENTITY</module>
+                <!--<module>ISPO-EAR</module>-->
+            </modules>
+
+        </profile>
+
+    </profiles>
+
   <modules>
-    <module>ISPO-EJB</module>
-    <module>ISPO-BEAN</module>
-    <module>ISPO-ENTITY</module>
-    <module>ISPO-EAR</module>
+    <module>ISPO-WAR</module>
   </modules>
 </project>
