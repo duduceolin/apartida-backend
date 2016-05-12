@@ -32,12 +32,15 @@ public class UsuarioDAO extends GenericDAO<Usuario, Integer> {
 
     public Boolean validarUsuario(EntityManager emNoXa, String login, String senha) {
 
-        TypedQuery<Usuario> query = em.createNamedQuery(Usuario.VALIDAR_USUARIO, Usuario.class);
+        TypedQuery<Usuario> query = emNoXa.createNamedQuery(Usuario.VALIDAR_USUARIO, Usuario.class);
         query.setParameter("login", login);
         query.setParameter("senha", senha);
 
         List<Usuario> results = query.getResultList();
 
-        return results != null && results.size() > 1;
+        if (results != null && !results.isEmpty()) {
+            return Boolean.TRUE;
+        }
+        return Boolean.FALSE;
     }
 }
