@@ -6,7 +6,10 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -21,12 +24,16 @@ public class Usuario extends BaseEntity implements Serializable {
     private static final long serialVersionUID = -7335128068373741864L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario", unique = true, nullable = false)
     private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Perfil.class)
-    @Column(name = "id_perfil", nullable = true)
+    @JoinColumn(name = "id_perfil", nullable = true)
     private Perfil perfil;
+
+    @Column(name = "login", nullable = false)
+    private String login;
 
     @Column(name = "nome", nullable = false)
     private String nome;
@@ -51,6 +58,14 @@ public class Usuario extends BaseEntity implements Serializable {
 
     public void setPerfil(Perfil perfil) {
         this.perfil = perfil;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getNome() {

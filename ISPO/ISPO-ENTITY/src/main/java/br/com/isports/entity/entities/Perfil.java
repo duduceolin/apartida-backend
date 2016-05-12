@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -30,7 +31,7 @@ public class Perfil extends BaseEntity implements Serializable {
     private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @Column(name = "id_empresa", nullable = false)
+    @JoinColumn(name = "id_empresa", nullable = false)
     private Empresa empresa;
 
     @Column(name = "nome", nullable = false)

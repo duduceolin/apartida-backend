@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -26,11 +27,11 @@ public class PerfilAcesso extends BaseEntity implements Serializable {
     private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Perfil.class)
-    @Column(name = "id_perfil", nullable = false)
+    @JoinColumn(name = "id_perfil", nullable = false)
     private Perfil perfil;
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Funcionalidade.class)
-    @Column(name = "id_funcionalidade", nullable = false)
+    @JoinColumn(name = "id_funcionalidade", nullable = false)
     private Funcionalidade funcionalidade;
 
     public Integer getId() {

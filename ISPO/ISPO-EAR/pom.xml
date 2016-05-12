@@ -7,18 +7,40 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     
-    <!-- Sem groupId ou version. Eles foram herdados do pai -->
     <artifactId>ISPO-EAR</artifactId>
     <packaging>ear</packaging>
     <name>ISPO-EAR</name>
     
     <properties>
-        <maven.compiler.source>1.7</maven.compiler.source>
+        <!-- Explicitly declaring the source encoding eliminates the following 
+        message: -->
+        <!-- [WARNING] Using platform encoding (UTF-8 actually) to copy filtered 
+        resources, i.e. build is platform dependent! -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- JBoss dependency versions -->
+        <version.jboss.maven.plugin>7.4.Final</version.jboss.maven.plugin>
+
+        <!-- Define the version of the JBoss BOMs we want to import to specify 
+        tested stacks. -->
+        <version.jboss.bom>1.0.7.Final</version.jboss.bom>
+
+        <!-- Define JBoss version, 7.2.0.Final equals EAP 6.1.0 Alpha -->
+        <version.jboss.as>7.2.0.Final</version.jboss.as>
+
+        <!-- other plugin versions -->
+        <version.ear.plugin>2.6</version.ear.plugin>
+        <version.ejb.plugin>2.3</version.ejb.plugin>
+        <version.surefire.plugin>2.10</version.surefire.plugin>
+        <version.war.plugin>2.1.1</version.war.plugin>
+
+        <!-- maven-compiler-plugin -->
         <maven.compiler.target>1.7</maven.compiler.target>
+        <maven.compiler.source>1.7</maven.compiler.source>
     </properties>
-    
-    
+
     <dependencies>
+        <!-- Depend on the ejb module so that we can package them -->
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>ISPO-EJB</artifactId>
@@ -27,25 +49,40 @@
         </dependency>
     </dependencies>
 
-    <!-- Build Settings -->
     <build>
+        <!-- Set the name of the ear, used as the context root when the ear is 
+        deployed -->
+        <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-ear-plugin</artifactId>
-                <version>2.9.1</version>
+                <version>${version.ear.plugin}</version>
                 <configuration>
-                    <version>6</version>
+                    <!-- Use Java EE ear libraries as needed. Java EE ear libraries are 
+                    in easy way to package any libraries needed in the ear, and automatically 
+                    have any modules (EJB-JARs and WARs) use them -->
                     <defaultLibBundleDir>lib</defaultLibBundleDir>
-                    <modules>
-                        <ejbModule>
-                            <groupId>${project.groupId}</groupId>
-                            <artifactId>ISPO-EJB</artifactId> <!-- herdado de dependencies -->
-                        </ejbModule>
-                    </modules>
+                    <modules />
+                    <!-- Defaults to the module added as dependency -->
+                    <!--<ejbModule> -->
+                    <!--<groupId>WebServiceSoapEJB</groupId> -->
+                    <!--<artifactId>WebServiceSoapEJB-ejb</artifactId> -->
+                    <!--</ejbModule> -->
+                    <fileNameMapping>no-version</fileNameMapping>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.jboss.as.plugins</groupId>
+                <artifactId>jboss-as-maven-plugin</artifactId>
+                <configuration>
+                    <filename>ISPO-EAR.ear</filename>
+                    <skip>false</skip>
+                    <execute-commands />
+                    <executeCommands />
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
 </project>
