@@ -5,9 +5,14 @@
  */
 package br.com.isports.ejb.helper;
 
+import br.com.isports.bean.usuarioservice.InBuscarUsuario;
 import br.com.isports.bean.usuarioservice.InValidarUsuario;
+import br.com.isports.bean.usuarioservice.OutBuscarUsuario;
 import br.com.isports.bean.usuarioservice.OutValidarUsuario;
+import br.com.isports.bean.usuarioservice.UsuarioDTO;
+import br.com.isports.ejb.converter.UsuarioConverter;
 import br.com.isports.ejb.dao.UsuarioDAO;
+import br.com.isports.entity.entities.Usuario;
 import javax.persistence.EntityManager;
 
 /**
@@ -29,6 +34,21 @@ public class UsuarioHelper {
 
         out.setUsuarioValido(usuarioValido);
 
+        return out;
+    }
+
+    public OutBuscarUsuario buscarUsuarioLoginSenha(EntityManager emNoXa, InBuscarUsuario inBuscar) {
+
+        OutBuscarUsuario out = new OutBuscarUsuario();
+        UsuarioDTO dto = null;
+
+        Usuario usuario = usuarioDAO.buscarUsuarioLoginSenha(emNoXa, inBuscar.getDados().getLogin(), inBuscar.getDados().getSenha());
+
+        if (usuario != null) {
+            dto = UsuarioConverter.entityToDTO(usuario);
+        }
+
+        out.setUsuario(dto);
         return out;
     }
 

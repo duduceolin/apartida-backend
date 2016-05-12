@@ -9,6 +9,12 @@
     <persistence-unit name="IsportsXADS" transaction-type="JTA">
         <!-- Specify the JPA provider to use -->
         
+        <properties>
+            <property name="hibernate.show_sql" value="true" /> 
+            <property name="hibernate.format_sql" value="true" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+        </properties>
+        
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <jta-data-source>java:/IsportsXADS</jta-data-source>
 
@@ -21,6 +27,11 @@
     <persistence-unit name="IsportsNOXADS" transaction-type="JTA">
         <!-- Specify the JPA provider to use -->
         
+        <properties>
+            <property name="hibernate.show_sql" value="true" /> 
+            <property name="hibernate.format_sql" value="true" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+        </properties>
         
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <jta-data-source>java:/IsportsNOXADS</jta-data-source>

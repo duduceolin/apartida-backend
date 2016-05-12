@@ -43,4 +43,10 @@ public class UsuarioDAO extends GenericDAO<Usuario, Integer> {
         }
         return Boolean.FALSE;
     }
+
+    public Usuario buscarUsuarioLoginSenha(EntityManager emNoXa, String login, String senha) {
+        TypedQuery<Usuario> query = emNoXa.createNamedQuery(Usuario.VALIDAR_USUARIO, Usuario.class);
+
+        return query.getSingleResult();
+    }
 }

@@ -5,7 +5,9 @@
  */
 package br.com.isports.iface.ejb;
 
+import br.com.isports.bean.usuarioservice.InBuscarUsuario;
 import br.com.isports.bean.usuarioservice.InValidarUsuario;
+import br.com.isports.bean.usuarioservice.OutBuscarUsuario;
 import br.com.isports.bean.usuarioservice.OutValidarUsuario;
 import javax.xml.bind.annotation.XmlElement;
 
@@ -15,9 +17,9 @@ import javax.xml.bind.annotation.XmlElement;
  */
 public interface UsuarioServiceLocal {
 
-    public Integer buscarTotalUsuario();
-
     public void cadastrarUsuario();
-    
-    public OutValidarUsuario validarUsuario(@XmlElement(required = true) InValidarUsuario inValidarUsuario);
+
+    public OutValidarUsuario validarUsuario(InValidarUsuario inValidarUsuario);
+
+    public OutBuscarUsuario buscarUsuario (InBuscarUsuario inBuscar);
 }

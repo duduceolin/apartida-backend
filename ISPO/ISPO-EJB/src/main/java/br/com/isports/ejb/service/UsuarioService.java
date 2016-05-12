@@ -5,7 +5,9 @@
  */
 package br.com.isports.ejb.service;
 
+import br.com.isports.bean.usuarioservice.InBuscarUsuario;
 import br.com.isports.bean.usuarioservice.InValidarUsuario;
+import br.com.isports.bean.usuarioservice.OutBuscarUsuario;
 import br.com.isports.bean.usuarioservice.OutValidarUsuario;
 import br.com.isports.ejb.dao.UsuarioDAO;
 import br.com.isports.ejb.helper.UsuarioHelper;
@@ -27,11 +29,11 @@ import javax.xml.bind.annotation.XmlElement;
 public class UsuarioService extends AbstractService implements UsuarioServiceLocal {
 
     @Override
-    @WebMethod(operationName = "buscarTotalUsuario")
-    @WebResult(name = "TotalUsuario")
-    public Integer buscarTotalUsuario() {
-        UsuarioDAO dao = new UsuarioDAO();
-        return dao.listarUsuarios(emNoXa).size();
+    @WebMethod(operationName = "buscarUsuario")
+    @WebResult(name = "usuario")
+    public OutBuscarUsuario buscarUsuario(@XmlElement(required = true, name = "inBuscarUsuario") InBuscarUsuario inBuscar) {
+        UsuarioHelper helper = new UsuarioHelper();
+        return helper.buscarUsuarioLoginSenha(emNoXa, inBuscar);
     }
 
     @Override
@@ -47,13 +49,13 @@ public class UsuarioService extends AbstractService implements UsuarioServiceLoc
     @WebResult(name = "cadastrarUsuario")
     @Transactional
     public void cadastrarUsuario() {
-        UsuarioDAO dao = new UsuarioDAO();
-        Usuario usuario = new Usuario();
-        usuario.setAdmin("S");
-        usuario.setNome("teste insercao");
-        usuario.setLogin("testeinsert");
-        usuario.setSenha("123123");
-        dao.cadastrarUsuario(em, usuario);
+//        UsuarioDAO dao = new UsuarioDAO();
+//        Usuario usuario = new Usuario();
+//        usuario.setAdmin("S");
+//        usuario.setNome("teste insercao");
+//        usuario.setLogin("testeinsert");
+//        usuario.setSenha("123123");
+//        dao.cadastrarUsuario(em, usuario);
     }
 
 }
