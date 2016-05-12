@@ -42,3 +42,9 @@ ON DELETE CASCADE,
 FOREIGN KEY (id_funcionalidade) 
 REFERENCES tbl_funcionalidade(id_funcionalidade)
 ON DELETE CASCADE);
+
+//login deve ser unico
+ALTER TABLE tbl_usuario
+ADD UNIQUE INDEX `id_usuario_UNIQUE` (`id_usuario` ASC),
+ADD UNIQUE INDEX `login_UNIQUE` (`login` ASC);
+

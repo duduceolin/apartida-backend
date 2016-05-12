@@ -8,6 +8,7 @@ package br.com.isports.ejb.dao;
 import br.com.isports.entity.entities.Usuario;
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -27,5 +28,16 @@ public class UsuarioDAO extends GenericDAO<Usuario, Integer> {
     public void cadastrarUsuario(EntityManager em, Usuario usuario) {
         this.em = em;
         salvar(usuario);
+    }
+
+    public Boolean validarUsuario(EntityManager emNoXa, String login, String senha) {
+
+        TypedQuery<Usuario> query = em.createNamedQuery(Usuario.VALIDAR_USUARIO, Usuario.class);
+        query.setParameter("login", login);
+        query.setParameter("senha", senha);
+
+        List<Usuario> results = query.getResultList();
+
+        return results != null && results.size() > 1;
     }
 }

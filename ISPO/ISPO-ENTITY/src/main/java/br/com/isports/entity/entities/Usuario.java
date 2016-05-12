@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
@@ -19,10 +21,16 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "tbl_usuario")
+@NamedQueries({
+    @NamedQuery(name = Usuario.VALIDAR_USUARIO, query = "SELECT u FROM Usuario u WHERE "
+            + "u.login = :login and u.senha = :senha")
+})
 public class Usuario extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = -7335128068373741864L;
 
+    public static final String VALIDAR_USUARIO = "Usuario.validarUsuario";
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario", unique = true, nullable = false)
