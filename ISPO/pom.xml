@@ -17,13 +17,12 @@
     </properties>
     
   
-    <!-- Centraliza as informações de dependência, simplificando as referências nos filhos -->
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>javax</groupId>
                 <artifactId>javaee-api</artifactId>
-                <version>6.0</version>
+                <version>7.0</version>
                 <scope>provided</scope>
             </dependency>
 
@@ -47,29 +46,14 @@
     <build>
         <pluginManagement>
             <plugins>
-                <!-- Start Core Plugins -->
                 <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.3</version>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-resources-plugin</artifactId>
-                    <version>2.7</version>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-ejb-plugin</artifactId>
-                    <version>2.5</version>
+                    <version>2.0.2</version>
                     <configuration>
-                        <ejbVersion>3.1</ejbVersion>
+                        <source>1.7</source>
+                        <target>1.7</target>
                     </configuration>
                 </plugin>
-
-                <!-- End Core plugins -->
             </plugins>
         </pluginManagement>
     </build>
@@ -82,17 +66,16 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <modules>
-                <!--<module>ISPO-EJB</module>-->
+                <module>ISPO-EJB</module>
                 <module>ISPO-BEAN</module>
+                <!--<module>ISPO-WAR</module>-->
+                <module>ISPO-IFACE</module>
                 <module>ISPO-ENTITY</module>
-                <!--<module>ISPO-EAR</module>-->
+                <module>ISPO-EAR</module>
             </modules>
 
         </profile>
 
     </profiles>
 
-  <modules>
-    <module>ISPO-WAR</module>
-  </modules>
 </project>
