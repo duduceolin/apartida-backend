@@ -14,7 +14,7 @@ import br.com.isports.entity.entities.Perfil;
  */
 public abstract class PerfilConverter extends AbstractConverter {
 
-    public static Perfil dtoToEntity(PerfilDTO dto) {
+    public static Perfil dtoToEntity(PerfilDTO dto) throws NullPointerException{
         Perfil entity = new Perfil();
 
         if (dto.getId() != null) {
@@ -30,7 +30,7 @@ public abstract class PerfilConverter extends AbstractConverter {
         return entity;
     }
 
-    public static PerfilDTO entityToDTO(Perfil entity) {
+    public static PerfilDTO entityToDTO(Perfil entity) throws NullPointerException{
         PerfilDTO dto = new PerfilDTO();
 
         dto.setId(entity.getId());

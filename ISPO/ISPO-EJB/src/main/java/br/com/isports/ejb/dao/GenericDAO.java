@@ -9,46 +9,47 @@ import javax.validation.Valid;
 
 public abstract class GenericDAO<T, I extends Serializable> {
 
-   protected EntityManager em;
-   protected EntityManager emNoXa;
+    protected EntityManager em;
 
-   private Class<T> persistedClass;
+    protected EntityManager emNoXa;
 
-   protected GenericDAO() {
-   }
+    private Class<T> persistedClass;
 
-   protected GenericDAO(Class<T> persistedClass) {
-       this();
-       this.persistedClass = persistedClass;
-   }
+    protected GenericDAO() {
+    }
 
-   public T salvar(@Valid T entity) {
-       em.persist(entity);
-       em.flush();
-       return entity;
-   }
+    protected GenericDAO(Class<T> persistedClass) {
+        this();
+        this.persistedClass = persistedClass;
+    }
 
-   public T atualizar(@Valid T entity) {
-       em.merge(entity);
-       em.flush();
-       return entity;
-   }
+    public T salvar(@Valid T entity) {
+        em.persist(entity);
+        em.flush();
+        return entity;
+    }
 
-   public void remover(I id) {
-       T entity = encontrar(id);
-       T mergedEntity = em.merge(entity);
-       em.remove(mergedEntity);
-       em.flush();
-   }
+    public T atualizar(@Valid T entity) {
+        em.merge(entity);
+        em.flush();
+        return entity;
+    }
 
-   public List<T> getList() {
-       CriteriaBuilder builder = emNoXa.getCriteriaBuilder();
-       CriteriaQuery<T> query = builder.createQuery(persistedClass);
-       query.from(persistedClass);
-       return emNoXa.createQuery(query).getResultList();
-   }
+    public void remover(I id) {
+        T entity = encontrar(id);
+        T mergedEntity = em.merge(entity);
+        em.remove(mergedEntity);
+        em.flush();
+    }
 
-   public T encontrar(I id) {
-       return emNoXa.find(persistedClass, id);
-   }
+    public List<T> getList() {
+        CriteriaBuilder builder = emNoXa.getCriteriaBuilder();
+        CriteriaQuery<T> query = builder.createQuery(persistedClass);
+        query.from(persistedClass);
+        return emNoXa.createQuery(query).getResultList();
+    }
+
+    public T encontrar(I id) {
+        return emNoXa.find(persistedClass, id);
+    }
 }

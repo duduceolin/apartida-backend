@@ -3,17 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.isports.ejb.helper;
-
-import javax.inject.Inject;
-import org.slf4j.Logger;
+package br.com.isports.bean.exception;
 
 /**
  *
  * @author dudu
  */
-public class AbstractHelper {
-    
-    @Inject
-    protected Logger logger;
+public enum TipoErro {
+
+    VALIDACAO,
+    NEGOCIO,
+    DESCONHECIDO;
+
 }

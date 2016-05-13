@@ -15,5 +15,6 @@
             <artifactId>ISPO-BEAN</artifactId>
             <version>${project.version}</version>
         </dependency>
+       
     </dependencies>
 </project>

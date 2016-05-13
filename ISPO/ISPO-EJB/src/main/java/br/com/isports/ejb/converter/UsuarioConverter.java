@@ -14,7 +14,7 @@ import br.com.isports.entity.entities.Usuario;
  */
 public abstract class UsuarioConverter extends AbstractConverter {
 
-    public static UsuarioDTO entityToDTO(Usuario entity) {
+    public static UsuarioDTO entityToDTO(Usuario entity) throws NullPointerException{
         UsuarioDTO dto = new UsuarioDTO();
 
         dto.setId(entity.getId());
@@ -30,7 +30,7 @@ public abstract class UsuarioConverter extends AbstractConverter {
         return dto;
     }
 
-    public static Usuario dtoToEntity(UsuarioDTO dto) {
+    public static Usuario dtoToEntity(UsuarioDTO dto) throws NullPointerException{
         Usuario entity = new Usuario();
 
         if (dto.getId() != null) {

@@ -8,12 +8,11 @@ package br.com.isports.ejb.service;
 import br.com.isports.ejb.utils.AbstractDefinition;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
 /**
  *
  * @author dudu
  */
-public class AbstractService {
+public abstract class AbstractService {
 
     @PersistenceContext(unitName = AbstractDefinition.NOME_ENTITY_MANAGER_XA)
     protected EntityManager em;

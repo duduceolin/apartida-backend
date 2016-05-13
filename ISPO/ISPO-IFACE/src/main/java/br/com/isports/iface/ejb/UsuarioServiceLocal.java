@@ -9,7 +9,7 @@ import br.com.isports.bean.usuarioservice.InBuscarUsuario;
 import br.com.isports.bean.usuarioservice.InValidarUsuario;
 import br.com.isports.bean.usuarioservice.OutBuscarUsuario;
 import br.com.isports.bean.usuarioservice.OutValidarUsuario;
-import javax.xml.bind.annotation.XmlElement;
+import br.com.isports.bean.exception.IspoException;
 
 /**
  *
@@ -19,7 +19,7 @@ public interface UsuarioServiceLocal {
 
     public void cadastrarUsuario();
 
-    public OutValidarUsuario validarUsuario(InValidarUsuario inValidarUsuario);
+    public OutValidarUsuario validarUsuario(InValidarUsuario inValidarUsuario) throws IspoException;
 
-    public OutBuscarUsuario buscarUsuario (InBuscarUsuario inBuscar);
+    public OutBuscarUsuario buscarUsuario (InBuscarUsuario inBuscar) throws IspoException;
 }

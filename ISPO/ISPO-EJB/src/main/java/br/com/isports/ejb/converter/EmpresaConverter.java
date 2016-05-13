@@ -14,7 +14,7 @@ import br.com.isports.entity.entities.Empresa;
  */
 public abstract class EmpresaConverter extends AbstractConverter {
 
-    public static Empresa dtoToEntity(EmpresaDTO dto) {
+    public static Empresa dtoToEntity(EmpresaDTO dto) throws NullPointerException{
         Empresa entity = new Empresa();
 
         if (dto.getId() != null) {
@@ -31,7 +31,7 @@ public abstract class EmpresaConverter extends AbstractConverter {
         return entity;
     }
 
-    public static EmpresaDTO entityToDTO(Empresa entity) {
+    public static EmpresaDTO entityToDTO(Empresa entity) throws NullPointerException{
         EmpresaDTO dto = new EmpresaDTO();
 
         dto.setId(entity.getId());

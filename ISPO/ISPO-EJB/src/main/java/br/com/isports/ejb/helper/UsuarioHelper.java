@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.isports.ejb.helper;
 
 import br.com.isports.bean.usuarioservice.InBuscarUsuario;
@@ -12,6 +7,9 @@ import br.com.isports.bean.usuarioservice.OutValidarUsuario;
 import br.com.isports.bean.usuarioservice.UsuarioDTO;
 import br.com.isports.ejb.converter.UsuarioConverter;
 import br.com.isports.ejb.dao.UsuarioDAO;
+import br.com.isports.ejb.exception.ConfigExceptionFactory;
+import br.com.isports.ejb.exception.ConfigExceptions;
+import br.com.isports.bean.exception.IspoException;
 import br.com.isports.entity.entities.Usuario;
 import javax.persistence.EntityManager;
 
@@ -19,7 +17,7 @@ import javax.persistence.EntityManager;
  *
  * @author dudu
  */
-public class UsuarioHelper {
+public class UsuarioHelper extends AbstractHelper{
 
     UsuarioDAO usuarioDAO;
 
@@ -27,7 +25,7 @@ public class UsuarioHelper {
         usuarioDAO = new UsuarioDAO();
     }
 
-    public OutValidarUsuario validarUsuario(EntityManager emNoXa, InValidarUsuario inValidar) {
+    public OutValidarUsuario validarUsuario(EntityManager emNoXa, InValidarUsuario inValidar) throws IspoException{
         OutValidarUsuario out = new OutValidarUsuario();
 
         Boolean usuarioValido = usuarioDAO.validarUsuario(emNoXa, inValidar.getDados().getLogin(), inValidar.getDados().getSenha());
@@ -37,19 +35,25 @@ public class UsuarioHelper {
         return out;
     }
 
-    public OutBuscarUsuario buscarUsuarioLoginSenha(EntityManager emNoXa, InBuscarUsuario inBuscar) {
+    public OutBuscarUsuario buscarUsuarioLoginSenha(EntityManager emNoXa, InBuscarUsuario inBuscar) throws IspoException{
 
         OutBuscarUsuario out = new OutBuscarUsuario();
         UsuarioDTO dto = null;
 
         Usuario usuario = usuarioDAO.buscarUsuarioLoginSenha(emNoXa, inBuscar.getDados().getLogin(), inBuscar.getDados().getSenha());
 
-        if (usuario != null) {
-            dto = UsuarioConverter.entityToDTO(usuario);
+        try{
+            if (usuario != null) {
+                dto = UsuarioConverter.entityToDTO(usuario);
+                out.setUsuario(dto);
+            }
+        }catch(NullPointerException e){
+            logger.error(e.getMessage());
+            throw ConfigExceptionFactory.criarException(ConfigExceptions.ERRO004);
         }
 
-        out.setUsuario(dto);
         return out;
+        
     }
 
 }

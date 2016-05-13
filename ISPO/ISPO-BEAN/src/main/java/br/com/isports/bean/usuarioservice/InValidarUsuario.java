@@ -16,7 +16,7 @@ public class InValidarUsuario implements Serializable {
 
     private static final long serialVersionUID = -5660662245439342343L;
 
-    @XmlElement(required = true, name = "dados")
+    @XmlElement(required = true)
     private BuscarUsuarioDTO dados;
 
     public BuscarUsuarioDTO getDados() {
