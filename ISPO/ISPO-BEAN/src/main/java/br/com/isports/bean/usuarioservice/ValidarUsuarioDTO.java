@@ -15,20 +15,32 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author dudu
  */
+@XmlRootElement(name = "ValidarUsuarioDTO")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class InBuscarUsuario implements Serializable {
+public class ValidarUsuarioDTO implements Serializable {
 
-    private static final long serialVersionUID = -5660662245439342343L;
+    private static final long serialVersionUID = 8251763164881223949L;
 
     @XmlElement(required = true)
-    private BuscarUsuarioDTO dadosBuscarUsuario;
+    private String login;
 
-    public BuscarUsuarioDTO getDadosBuscarUsuario() {
-        return dadosBuscarUsuario;
+    @XmlElement(required = true)
+    private String senha;
+
+    public String getLogin() {
+        return login;
     }
 
-    public void setDadosBuscarUsuario(BuscarUsuarioDTO dadosBuscarUsuario) {
-        this.dadosBuscarUsuario = dadosBuscarUsuario;
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
 }

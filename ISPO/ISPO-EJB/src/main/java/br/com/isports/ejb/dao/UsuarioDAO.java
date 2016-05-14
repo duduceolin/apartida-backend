@@ -34,7 +34,7 @@ public class UsuarioDAO extends GenericDAO<Usuario, Integer> {
 
         TypedQuery<Usuario> query = emNoXa.createNamedQuery(Usuario.VALIDAR_USUARIO, Usuario.class);
         query.setParameter("login", login);
-        query.setParameter("senha2", senha);
+        query.setParameter("senha", senha);
 
         List<Usuario> results = query.getResultList();
 

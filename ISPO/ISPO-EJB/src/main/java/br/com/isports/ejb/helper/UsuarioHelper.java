@@ -28,7 +28,7 @@ public class UsuarioHelper extends AbstractHelper{
     public OutValidarUsuario validarUsuario(EntityManager emNoXa, InValidarUsuario inValidar) throws IspoException{
         OutValidarUsuario out = new OutValidarUsuario();
 
-        Boolean usuarioValido = usuarioDAO.validarUsuario(emNoXa, inValidar.getDados().getLogin(), inValidar.getDados().getSenha());
+        Boolean usuarioValido = usuarioDAO.validarUsuario(emNoXa, inValidar.getDadosValidarUsuario().getLogin(), inValidar.getDadosValidarUsuario().getSenha());
 
         out.setUsuarioValido(usuarioValido);
 
@@ -40,7 +40,7 @@ public class UsuarioHelper extends AbstractHelper{
         OutBuscarUsuario out = new OutBuscarUsuario();
         UsuarioDTO dto = null;
 
-        Usuario usuario = usuarioDAO.buscarUsuarioLoginSenha(emNoXa, inBuscar.getDados().getLogin(), inBuscar.getDados().getSenha());
+        Usuario usuario = usuarioDAO.buscarUsuarioLoginSenha(emNoXa, inBuscar.getDadosBuscarUsuario().getLogin(), inBuscar.getDadosBuscarUsuario().getSenha());
 
         try{
             if (usuario != null) {

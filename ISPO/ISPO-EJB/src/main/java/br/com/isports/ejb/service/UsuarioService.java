@@ -43,9 +43,9 @@ public class UsuarioService extends AbstractService implements UsuarioServiceLoc
     @Override
     @WebMethod(operationName = "buscarUsuario")
     @WebResult(name = "usuario")
-    public OutBuscarUsuario buscarUsuario(@XmlElement(required = true) @WebParam(name = "inBuscarUsuario") InBuscarUsuario inBuscar) throws IspoException{
+    public OutBuscarUsuario buscarUsuario(@XmlElement(required = true) @WebParam(name = "inBuscarUsuario") InBuscarUsuario inBuscarUsuario) throws IspoException{
         UsuarioHelper helper = new UsuarioHelper();
-        return helper.buscarUsuarioLoginSenha(emNoXa, inBuscar);
+        return helper.buscarUsuarioLoginSenha(emNoXa, inBuscarUsuario);
     }
 
     @Override

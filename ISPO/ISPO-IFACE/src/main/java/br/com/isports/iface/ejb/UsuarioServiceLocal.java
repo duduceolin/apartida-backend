@@ -21,5 +21,5 @@ public interface UsuarioServiceLocal {
 
     public OutValidarUsuario validarUsuario(InValidarUsuario inValidarUsuario) throws IspoException;
 
-    public OutBuscarUsuario buscarUsuario (InBuscarUsuario inBuscar) throws IspoException;
+    public OutBuscarUsuario buscarUsuario(InBuscarUsuario inBuscarUsuario) throws IspoException;
 }
