@@ -34,6 +34,9 @@ public class Funcionalidade extends BaseEntity implements Serializable {
     @Column(name = "url", nullable = false)
     private String url;
 
+    @Column(name = "menu_pai", nullable = false)
+    private Long menuPai;
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "funcionalidade", targetEntity = PerfilAcesso.class)
     private List<PerfilAcesso> acessos;
 
@@ -67,6 +70,14 @@ public class Funcionalidade extends BaseEntity implements Serializable {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public Long getMenuPai() {
+        return menuPai;
+    }
+
+    public void setMenuPai(Long menuPai) {
+        this.menuPai = menuPai;
     }
 
     @Override

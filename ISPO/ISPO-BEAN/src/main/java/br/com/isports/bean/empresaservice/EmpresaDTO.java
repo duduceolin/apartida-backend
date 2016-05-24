@@ -5,6 +5,7 @@
  */
 package br.com.isports.bean.empresaservice;
 
+import br.com.isports.bean.planoservice.PlanoDTO;
 import java.io.Serializable;
 
 /**
@@ -22,6 +23,8 @@ public class EmpresaDTO implements Serializable {
     private String cep;
     private String cidade;
     private String estado;
+    private String pais;
+    private PlanoDTO plano;
 
     public Long getId() {
         return id;
@@ -77,6 +80,22 @@ public class EmpresaDTO implements Serializable {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+
+    public PlanoDTO getPlano() {
+        return plano;
+    }
+
+    public void setPlano(PlanoDTO plano) {
+        this.plano = plano;
     }
 
 }

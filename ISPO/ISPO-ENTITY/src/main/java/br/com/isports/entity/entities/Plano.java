@@ -42,8 +42,8 @@ public class Plano extends BaseEntity implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "plano", targetEntity = PlanoAcesso.class)
     private List<PlanoAcesso> acessos;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "empresa", targetEntity = Empresa.class)
-    private List<Perfil> empresas;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "plano", targetEntity = Empresa.class)
+    private List<Empresa> empresas;
 
     public Long getId() {
         return id;
@@ -69,11 +69,11 @@ public class Plano extends BaseEntity implements Serializable {
         this.acessos = acessos;
     }
 
-    public List<Perfil> getEmpresas() {
+    public List<Empresa> getEmpresas() {
         return empresas;
     }
 
-    public void setEmpresas(List<Perfil> empresas) {
+    public void setEmpresas(List<Empresa> empresas) {
         this.empresas = empresas;
     }
 

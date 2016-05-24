@@ -48,10 +48,13 @@ public class Empresa extends BaseEntity implements Serializable {
     @Column(name = "estado", nullable = false)
     private String estado;
 
+    @Column(name = "pais", nullable = false)
+    private String pais;
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "empresa", targetEntity = Perfil.class)
     private List<Perfil> perfisEmpresa;
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Plano.class)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_plano", nullable = false)
     private Plano plano;
 
@@ -125,6 +128,14 @@ public class Empresa extends BaseEntity implements Serializable {
 
     public void setPlano(Plano plano) {
         this.plano = plano;
+    }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
     }
 
     @Override
