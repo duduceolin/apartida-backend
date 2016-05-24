@@ -51,3 +51,14 @@ INSERT INTO `isports_test`.`tbl_funcionalidade`
 `url`)
 VALUES
 (1,'funcionalidade 01', 'lalalal');
+
+
+INSERT INTO `isports_test`.`tbl_plano_acesso`
+(`id_plano_acesso`,
+`id_plano`,
+`id_funcionalidade`)
+VALUES
+(1,
+1,
+1);
+
