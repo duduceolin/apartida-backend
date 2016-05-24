@@ -6,7 +6,9 @@
 package br.com.isports.bean.perfilservice;
 
 import br.com.isports.bean.empresaservice.EmpresaDTO;
+import br.com.isports.bean.funcionalidadeservice.FuncionalidadeDTO;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  *
@@ -19,6 +21,7 @@ public class PerfilDTO implements Serializable {
     private Long id;
     private EmpresaDTO empresa;
     private String nome;
+    private List<FuncionalidadeDTO> funcionalidades;
 
     public Long getId() {
         return id;
@@ -42,6 +45,14 @@ public class PerfilDTO implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public List<FuncionalidadeDTO> getFuncionalidades() {
+        return funcionalidades;
+    }
+
+    public void setFuncionalidades(List<FuncionalidadeDTO> funcionalidades) {
+        this.funcionalidades = funcionalidades;
     }
 
 }

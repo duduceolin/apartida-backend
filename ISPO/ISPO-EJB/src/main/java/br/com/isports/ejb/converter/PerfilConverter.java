@@ -5,8 +5,12 @@
  */
 package br.com.isports.ejb.converter;
 
+import br.com.isports.bean.funcionalidadeservice.FuncionalidadeDTO;
 import br.com.isports.bean.perfilservice.PerfilDTO;
 import br.com.isports.entity.entities.Perfil;
+import br.com.isports.entity.entities.PerfilAcesso;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -34,6 +38,17 @@ public abstract class PerfilConverter extends AbstractConverter {
         PerfilDTO dto = new PerfilDTO();
 
         dto.setId(entity.getId());
+        
+        List<FuncionalidadeDTO> funcionalidades = new ArrayList<>();
+
+        for (PerfilAcesso acesso : entity.getAcessos()) {
+            funcionalidades.add(FuncionalidadeConverter.entityToDTO(acesso.getFuncionalidade()));
+        }
+        
+        if (!funcionalidades.isEmpty()){
+            dto.setFuncionalidades(funcionalidades);
+        }
+        
         dto.setEmpresa(EmpresaConverter.entityToDTO(entity.getEmpresa()));
         dto.setNome(entity.getNome());
 
