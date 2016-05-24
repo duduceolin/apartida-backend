@@ -16,18 +16,18 @@ public class UsuarioDTO implements Serializable {
 
     private static final long serialVersionUID = 7099164849117510402L;
 
-    private Integer id;
+    private Long id;
     private String nome;
     private String login;
     private String senha;
     private String admin;
     private PerfilDTO perfil;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

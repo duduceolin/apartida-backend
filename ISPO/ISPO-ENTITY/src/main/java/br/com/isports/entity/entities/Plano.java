@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package br.com.isports.entity.entities;
 
 import br.com.isports.entity.utils.BaseEntity;
@@ -18,24 +23,27 @@ import javax.persistence.Table;
  * @author dudu
  */
 @Entity
-@Table(name = "tbl_funcionalidade")
-public class Funcionalidade extends BaseEntity implements Serializable {
+@Table(name = "tbl_plano")
+public class Plano extends BaseEntity implements Serializable {
 
-    private static final long serialVersionUID = -5474460865295920593L;
+    private static final long serialVersionUID = 1520336556592005932L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_funcionalidade", unique = true, nullable = false)
+    @Column(name = "id_plano", unique = true, nullable = false)
     private Long id;
 
     @Column(name = "nome", nullable = false)
     private String nome;
 
-    @Column(name = "url", nullable = false)
-    private String url;
+    @Column(name = "preco", nullable = false)
+    private Double preco;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "funcionalidade", targetEntity = PerfilAcesso.class)
-    private List<PerfilAcesso> acessos;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "plano", targetEntity = PlanoAcesso.class)
+    private List<PlanoAcesso> acessos;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "empresa", targetEntity = Empresa.class)
+    private List<Perfil> empresas;
 
     public Long getId() {
         return id;
@@ -53,26 +61,34 @@ public class Funcionalidade extends BaseEntity implements Serializable {
         this.nome = nome;
     }
 
-    public List<PerfilAcesso> getAcessos() {
+    public List<PlanoAcesso> getAcessos() {
         return acessos;
     }
 
-    public void setAcessos(List<PerfilAcesso> acessos) {
+    public void setAcessos(List<PlanoAcesso> acessos) {
         this.acessos = acessos;
     }
 
-    public String getUrl() {
-        return url;
+    public List<Perfil> getEmpresas() {
+        return empresas;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setEmpresas(List<Perfil> empresas) {
+        this.empresas = empresas;
+    }
+
+    public Double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(Double preco) {
+        this.preco = preco;
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 53 * hash + Objects.hashCode(this.id);
+        hash = 37 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -87,7 +103,7 @@ public class Funcionalidade extends BaseEntity implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Funcionalidade other = (Funcionalidade) obj;
+        final Plano other = (Plano) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
@@ -96,7 +112,7 @@ public class Funcionalidade extends BaseEntity implements Serializable {
 
     @Override
     public String toString() {
-        return "Funcionalidade{" + "id=" + id + ", nome=" + nome + '}';
+        return "Plano{" + "id=" + id + ", nome=" + nome + '}';
     }
 
 }

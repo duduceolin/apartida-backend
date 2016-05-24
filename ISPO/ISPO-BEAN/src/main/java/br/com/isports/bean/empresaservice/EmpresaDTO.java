@@ -15,7 +15,7 @@ public class EmpresaDTO implements Serializable {
 
     private static final long serialVersionUID = -8698098992806701663L;
 
-    private Integer id;
+    private Long id;
     private String nome;
     private String cnpj;
     private String telefone;
@@ -23,11 +23,11 @@ public class EmpresaDTO implements Serializable {
     private String cidade;
     private String estado;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -16,15 +16,15 @@ public class PerfilDTO implements Serializable {
 
     private static final long serialVersionUID = 8194413719368401925L;
 
-    private Integer id;
+    private Long id;
     private EmpresaDTO empresa;
     private String nome;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

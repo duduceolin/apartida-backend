@@ -30,11 +30,11 @@ public class Usuario extends BaseEntity implements Serializable {
     private static final long serialVersionUID = -7335128068373741864L;
 
     public static final String VALIDAR_USUARIO = "Usuario.validarUsuario";
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario", unique = true, nullable = false)
-    private Integer id;
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Perfil.class)
     @JoinColumn(name = "id_perfil", nullable = true)
@@ -52,11 +52,11 @@ public class Usuario extends BaseEntity implements Serializable {
     @Column(name = "admin", nullable = false)
     private String admin;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

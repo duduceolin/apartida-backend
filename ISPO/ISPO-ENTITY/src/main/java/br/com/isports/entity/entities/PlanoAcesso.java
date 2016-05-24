@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package br.com.isports.entity.entities;
 
 import br.com.isports.entity.utils.BaseEntity;
@@ -18,19 +23,19 @@ import javax.persistence.Table;
  * @author dudu
  */
 @Entity
-@Table(name = "tbl_perfil_acesso")
-public class PerfilAcesso extends BaseEntity implements Serializable {
+@Table(name = "tbl_plano_acesso")
+public class PlanoAcesso extends BaseEntity implements Serializable {
 
-    private static final long serialVersionUID = -6459110208424044486L;
+    private static final long serialVersionUID = 5888091697452093919L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_perfil_acesso", nullable = false, unique = true)
+    @Column(name = "id_plano_acesso", nullable = false, unique = true)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Perfil.class)
-    @JoinColumn(name = "id_perfil", nullable = false)
-    private Perfil perfil;
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Plano.class)
+    @JoinColumn(name = "id_plano", nullable = false)
+    private Plano plano;
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Funcionalidade.class)
     @JoinColumn(name = "id_funcionalidade", nullable = false)
@@ -44,12 +49,12 @@ public class PerfilAcesso extends BaseEntity implements Serializable {
         this.id = id;
     }
 
-    public Perfil getPerfil() {
-        return perfil;
+    public Plano getPlano() {
+        return plano;
     }
 
-    public void setPerfil(Perfil perfil) {
-        this.perfil = perfil;
+    public void setPlano(Plano plano) {
+        this.plano = plano;
     }
 
     public Funcionalidade getFuncionalidade() {
@@ -62,8 +67,8 @@ public class PerfilAcesso extends BaseEntity implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 47 * hash + Objects.hashCode(this.id);
+        int hash = 7;
+        hash = 29 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -78,7 +83,7 @@ public class PerfilAcesso extends BaseEntity implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final PerfilAcesso other = (PerfilAcesso) obj;
+        final PlanoAcesso other = (PlanoAcesso) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
@@ -87,7 +92,7 @@ public class PerfilAcesso extends BaseEntity implements Serializable {
 
     @Override
     public String toString() {
-        return "PerfilAcesso{" + "id=" + id + ", perfil=" + perfil + ", funcionalidade=" + funcionalidade + '}';
+        return "PlanoAcesso{" + "id=" + id + ", plano=" + plano + '}';
     }
 
 }

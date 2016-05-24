@@ -10,6 +10,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -26,7 +28,7 @@ public class Empresa extends BaseEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_empresa", unique = true, nullable = false)
-    private Integer id;
+    private Long id;
 
     @Column(name = "nome", nullable = false)
     private String nome;
@@ -49,11 +51,15 @@ public class Empresa extends BaseEntity implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "empresa", targetEntity = Perfil.class)
     private List<Perfil> perfisEmpresa;
 
-    public Integer getId() {
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Plano.class)
+    @JoinColumn(name = "id_plano", nullable = false)
+    private Plano plano;
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -111,6 +117,14 @@ public class Empresa extends BaseEntity implements Serializable {
 
     public void setPerfisEmpresa(List<Perfil> perfisEmpresa) {
         this.perfisEmpresa = perfisEmpresa;
+    }
+
+    public Plano getPlano() {
+        return plano;
+    }
+
+    public void setPlano(Plano plano) {
+        this.plano = plano;
     }
 
     @Override
