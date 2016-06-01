@@ -16,6 +16,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
@@ -24,7 +26,13 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "tbl_plano_acesso")
+@NamedQueries({
+    @NamedQuery(name = PlanoAcesso.PESQUISAR_FUNCIONALIDADES, query = "SELECT pa.funcionalidade FROM PlanoAcesso pa"
+            + " WHERE pa.plano.id = :idPlano ")
+})
 public class PlanoAcesso extends BaseEntity implements Serializable {
+
+    public static final String PESQUISAR_FUNCIONALIDADES = "PlanoAcesso.pesquisarFuncionalidades";
 
     private static final long serialVersionUID = 5888091697452093919L;
 

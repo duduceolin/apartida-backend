@@ -12,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -21,10 +23,16 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "tbl_empresa")
+@NamedQueries({
+    @NamedQuery(name = Empresa.BUSCAR_EMPRESA, query = "SELECT e FROM Empresa e"
+            + " WHERE e.id = :idEmpresa ")
+})
 public class Empresa extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = -3242091674432065897L;
 
+    public static final String BUSCAR_EMPRESA = "Empresa.buscarEmpresa";
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_empresa", unique = true, nullable = false)
