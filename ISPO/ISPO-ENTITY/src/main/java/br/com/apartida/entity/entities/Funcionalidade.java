@@ -1,6 +1,6 @@
-package br.com.isports.entity.entities;
+package br.com.apartida.entity.entities;
 
-import br.com.isports.entity.utils.BaseEntity;
+import br.com.apartida.entity.utils.BaseEntity;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
@@ -30,11 +30,11 @@ public class Funcionalidade extends BaseEntity implements Serializable {
 
     @Column(name = "nome", nullable = false)
     private String nome;
-
-    @Column(name = "url", nullable = false)
+    
+    @Column(name = "url")
     private String url;
 
-    @Column(name = "menu_pai", nullable = false)
+    @Column(name = "menu_pai")
     private Long menuPai;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "funcionalidade", targetEntity = PerfilAcesso.class)

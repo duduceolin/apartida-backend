@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.isports.entity.entities;
+package br.com.apartida.entity.entities;
 
-import br.com.isports.entity.utils.BaseEntity;
+import br.com.apartida.entity.utils.BaseEntity;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Column;
@@ -27,13 +27,21 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tbl_plano_acesso")
 @NamedQueries({
-    @NamedQuery(name = PlanoAcesso.PESQUISAR_FUNCIONALIDADES, query = "SELECT pa.funcionalidade FROM PlanoAcesso pa"
-            + " WHERE pa.plano.id = :idPlano ")
+    @NamedQuery(name = PlanoAcesso.PESQUISAR_FUNCIONALIDADES_PAI, query = "SELECT new br.com.apartida.entity.dtos.FuncionalidadeMenuDTO"
+            + "(pa.funcionalidade.id, pa.funcionalidade.nome, pa.funcionalidade.url)"
+            + " FROM PlanoAcesso pa"
+            + " WHERE pa.plano.id = :idPlano AND pa.funcionalidade.menuPai is null"),
+        
+        @NamedQuery(name = PlanoAcesso.PESQUISAR_SUBFUNCIONALIDADES, query = "SELECT new br.com.apartida.entity.dtos.FuncionalidadeMenuDTO(f.id, f.nome, f.url)"
+            + " FROM Funcionalidade f WHERE f.menuPai = :idFuncionalidadePai"
+        )
 })
 public class PlanoAcesso extends BaseEntity implements Serializable {
 
-    public static final String PESQUISAR_FUNCIONALIDADES = "PlanoAcesso.pesquisarFuncionalidades";
+    public static final String PESQUISAR_FUNCIONALIDADES_PAI = "PlanoAcesso.pesquisarFuncionalidadesPai";
 
+     public static final String PESQUISAR_SUBFUNCIONALIDADES = "PlanoAcesso.pesquisarSubFuncionalidades";
+    
     private static final long serialVersionUID = 5888091697452093919L;
 
     @Id

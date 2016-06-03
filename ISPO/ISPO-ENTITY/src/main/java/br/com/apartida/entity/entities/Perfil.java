@@ -1,6 +1,6 @@
-package br.com.isports.entity.entities;
+package br.com.apartida.entity.entities;
 
-import br.com.isports.entity.utils.BaseEntity;
+import br.com.apartida.entity.utils.BaseEntity;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
@@ -37,6 +37,9 @@ public class Perfil extends BaseEntity implements Serializable {
     @Column(name = "nome", nullable = false)
     private String nome;
 
+    @Column(name = "is_admin", nullable = false)
+    private String isAdmin;
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "perfil", targetEntity = PerfilAcesso.class)
     private List<PerfilAcesso> acessos;
 
@@ -70,6 +73,14 @@ public class Perfil extends BaseEntity implements Serializable {
 
     public void setAcessos(List<PerfilAcesso> acessos) {
         this.acessos = acessos;
+    }
+
+    public String getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(String isAdmin) {
+        this.isAdmin = isAdmin;
     }
 
     @Override

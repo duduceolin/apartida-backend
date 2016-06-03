@@ -1,4 +1,4 @@
-package br.com.isports.entity.utils;
+package br.com.apartida.entity.utils;
 
 import javax.persistence.MappedSuperclass;
 

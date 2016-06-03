@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.isports.entity.entities;
+package br.com.apartida.entity.entities;
 
-import br.com.isports.entity.utils.BaseEntity;
+import br.com.apartida.entity.utils.BaseEntity;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;

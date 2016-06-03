@@ -1,6 +1,6 @@
-package br.com.isports.entity.entities;
+package br.com.apartida.entity.entities;
 
-import br.com.isports.entity.utils.BaseEntity;
+import br.com.apartida.entity.utils.BaseEntity;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Column;
@@ -49,9 +49,6 @@ public class Usuario extends BaseEntity implements Serializable {
     @Column(name = "senha", nullable = false)
     private String senha;
 
-    @Column(name = "admin", nullable = false)
-    private String admin;
-
     public Long getId() {
         return id;
     }
@@ -92,14 +89,6 @@ public class Usuario extends BaseEntity implements Serializable {
         this.senha = senha;
     }
 
-    public String getAdmin() {
-        return admin;
-    }
-
-    public void setAdmin(String admin) {
-        this.admin = admin;
-    }
-
     @Override
     public int hashCode() {
         int hash = 7;
@@ -127,7 +116,7 @@ public class Usuario extends BaseEntity implements Serializable {
 
     @Override
     public String toString() {
-        return "Usuario{" + "id=" + id + ", perfil=" + perfil + ", nome=" + nome + ", senha=" + senha + ", admin=" + admin + '}';
+        return "Usuario{" + "id=" + id + ", perfil=" + perfil + ", nome=" + nome + ", senha=" + senha + '}';
     }
 
 }
