@@ -5,7 +5,7 @@
  */
 package br.com.isports.ejb.dao;
 
-import br.com.isports.entity.entities.Funcionalidade;
+import br.com.apartida.entity.entities.Funcionalidade;
 
 /**
  *

@@ -6,7 +6,7 @@
 package br.com.isports.ejb.converter;
 
 import br.com.isports.bean.empresaservice.EmpresaDTO;
-import br.com.isports.entity.entities.Empresa;
+import br.com.apartida.entity.entities.Empresa;
 
 /**
  *

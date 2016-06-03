@@ -5,7 +5,7 @@
  */
 package br.com.isports.ejb.dao;
 
-import br.com.isports.entity.entities.Usuario;
+import br.com.apartida.entity.entities.Usuario;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;

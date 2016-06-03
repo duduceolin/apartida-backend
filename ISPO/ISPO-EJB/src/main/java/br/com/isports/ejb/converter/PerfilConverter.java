@@ -7,8 +7,8 @@ package br.com.isports.ejb.converter;
 
 import br.com.isports.bean.funcionalidadeservice.FuncionalidadeDTO;
 import br.com.isports.bean.perfilservice.PerfilDTO;
-import br.com.isports.entity.entities.Perfil;
-import br.com.isports.entity.entities.PerfilAcesso;
+import br.com.apartida.entity.entities.Perfil;
+import br.com.apartida.entity.entities.PerfilAcesso;
 import java.util.ArrayList;
 import java.util.List;
 

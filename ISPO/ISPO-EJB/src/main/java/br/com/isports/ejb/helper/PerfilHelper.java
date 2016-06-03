@@ -9,8 +9,8 @@ import br.com.isports.bean.perfilservice.OutPesquisarPerfis;
 import br.com.isports.bean.perfilservice.PerfilDTO;
 import br.com.isports.ejb.converter.PerfilConverter;
 import br.com.isports.ejb.dao.EmpresaDAO;
-import br.com.isports.entity.entities.Empresa;
-import br.com.isports.entity.entities.Perfil;
+import br.com.apartida.entity.entities.Empresa;
+import br.com.apartida.entity.entities.Perfil;
 import java.util.ArrayList;
 import javax.persistence.EntityManager;
 

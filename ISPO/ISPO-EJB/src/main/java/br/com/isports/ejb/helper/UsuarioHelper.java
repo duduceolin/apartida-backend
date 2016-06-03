@@ -10,7 +10,7 @@ import br.com.isports.ejb.dao.UsuarioDAO;
 import br.com.isports.ejb.exception.ConfigExceptionFactory;
 import br.com.isports.ejb.exception.ConfigExceptions;
 import br.com.isports.bean.exception.IspoException;
-import br.com.isports.entity.entities.Usuario;
+import br.com.apartida.entity.entities.Usuario;
 import javax.persistence.EntityManager;
 
 /**

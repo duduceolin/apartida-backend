@@ -5,17 +5,20 @@
  */
 package br.com.isports.ejb.service;
 
-import br.com.isports.bean.empresaservice.InPesquisarPelaEmpresa;
 import br.com.isports.bean.exception.IspoException;
-import br.com.isports.bean.funcionalidadeservice.InPesquisarFuncionalidades;
-import br.com.isports.bean.funcionalidadeservice.OutPesquisarFuncionalidades;
+import br.com.isports.bean.funcionalidadeservice.InPesquisarFuncionalidadesPlano;
+import br.com.isports.bean.funcionalidadeservice.OutPesquisarFuncionalidadesPlano;
 import br.com.isports.ejb.helper.FuncionalidadeHelper;
 import br.com.isports.ejb.interceptor.ExceptionInterceptor;
-import br.com.isports.iface.ejb.FuncionalidadeServiceLocal;
+import br.com.apartida.iface.ejb.FuncionalidadeServiceLocal;
 import javax.ejb.Stateless;
 import javax.interceptor.Interceptors;
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
+import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
+import javax.xml.bind.annotation.XmlElement;
 import org.apache.cxf.annotations.SchemaValidation;
 
 /**
@@ -27,11 +30,13 @@ import org.apache.cxf.annotations.SchemaValidation;
 @SOAPBinding(parameterStyle = SOAPBinding.ParameterStyle.BARE)
 @SchemaValidation
 @Interceptors(ExceptionInterceptor.class)
-public class FuncionalidadeService extends AbstractService implements FuncionalidadeServiceLocal{
+public class FuncionalidadeService extends AbstractService implements FuncionalidadeServiceLocal {
 
     @Override
-    public OutPesquisarFuncionalidades pesquisarFuncionalidadesEmpresa(InPesquisarPelaEmpresa inPesquisar) throws IspoException {
-        return new FuncionalidadeHelper().pesquisarFuncionalidadesPelaEmpresa(emNoXa, inPesquisar.getIdEmpresa());
+    @WebMethod(operationName = "pesquisarFuncionalidadesPlanoMenu")
+    @WebResult(name = "funcionalidadesMenu")
+    public OutPesquisarFuncionalidadesPlano pesquisarFuncionalidadesPlanoMenu(@WebParam(name = "InPesquisarFuncionalidadesPlano") @XmlElement(required = true) InPesquisarFuncionalidadesPlano inPesquisar) throws IspoException {
+        return new FuncionalidadeHelper().pesquisarFuncionalidadesPlanoMenu(emNoXa, inPesquisar.getIdPlano());
     }
-    
+
 }

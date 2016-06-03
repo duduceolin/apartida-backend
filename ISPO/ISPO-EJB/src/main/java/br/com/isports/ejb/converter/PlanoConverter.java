@@ -7,8 +7,8 @@ package br.com.isports.ejb.converter;
 
 import br.com.isports.bean.funcionalidadeservice.FuncionalidadeDTO;
 import br.com.isports.bean.planoservice.PlanoDTO;
-import br.com.isports.entity.entities.Plano;
-import br.com.isports.entity.entities.PlanoAcesso;
+import br.com.apartida.entity.entities.Plano;
+import br.com.apartida.entity.entities.PlanoAcesso;
 import java.util.ArrayList;
 import java.util.List;
 

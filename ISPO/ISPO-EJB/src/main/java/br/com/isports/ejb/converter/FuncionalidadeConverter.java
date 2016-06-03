@@ -5,8 +5,11 @@
  */
 package br.com.isports.ejb.converter;
 
+import br.com.apartida.entity.dtos.FuncionalidadeMenuDTO;
 import br.com.isports.bean.funcionalidadeservice.FuncionalidadeDTO;
-import br.com.isports.entity.entities.Funcionalidade;
+import br.com.apartida.entity.entities.Funcionalidade;
+import br.com.isports.bean.funcionalidadeservice.FuncionalidadeToMenuDTO;
+import java.util.ArrayList;
 
 /**
  *
@@ -18,9 +21,6 @@ public abstract class FuncionalidadeConverter extends AbstractConverter {
         FuncionalidadeDTO dto = new FuncionalidadeDTO();
 
         dto.setIdFuncionalidade(entity.getId());
-        dto.setIdMenuPai(dto.getIdMenuPai());
-        dto.setNome(entity.getNome());
-        dto.setUrl(entity.getUrl());
 
         return dto;
     }
@@ -32,11 +32,23 @@ public abstract class FuncionalidadeConverter extends AbstractConverter {
             entity.setId(dto.getIdFuncionalidade());
         }
 
-        entity.setMenuPai(dto.getIdMenuPai());
-        entity.setNome(dto.getNome());
-        entity.setUrl(dto.getUrl());
-
         return entity;
     }
 
+    public static FuncionalidadeToMenuDTO converterMenuToDTO(FuncionalidadeMenuDTO menu) {
+        FuncionalidadeToMenuDTO dto = new FuncionalidadeToMenuDTO();
+
+        dto.setIdFuncionalidade(menu.getIdFuncionalidade());
+        dto.setNome(menu.getNome());
+        dto.setUrl(menu.getUrl());
+        if (menu.getSubFuncionalidades() != null) {
+
+            dto.setSubFuncionalidades(new ArrayList<FuncionalidadeToMenuDTO>());
+
+            for (FuncionalidadeMenuDTO func : menu.getSubFuncionalidades()) {
+                dto.getSubFuncionalidades().add(converterMenuToDTO(func));
+            }
+        }
+        return dto;
+    }
 }

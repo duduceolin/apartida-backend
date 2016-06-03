@@ -12,7 +12,7 @@ import br.com.isports.bean.usuarioservice.OutValidarUsuario;
 import br.com.isports.bean.exception.IspoException;
 import br.com.isports.ejb.helper.UsuarioHelper;
 import br.com.isports.ejb.interceptor.ExceptionInterceptor;
-import br.com.isports.iface.ejb.UsuarioServiceLocal;
+import br.com.apartida.iface.ejb.UsuarioServiceLocal;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.interceptor.Interceptors;
@@ -30,7 +30,7 @@ import org.slf4j.Logger;
  * @author dudu
  */
 @Stateless
-@WebService(serviceName = "UsuarioService", targetNamespace = "http://apartida.com.br/servicos/PerfilService")
+@WebService(serviceName = "UsuarioService", targetNamespace = "http://apartida.com.br/servicos/UsuarioService")
 @SOAPBinding(parameterStyle = SOAPBinding.ParameterStyle.BARE)
 @SchemaValidation
 @Interceptors(ExceptionInterceptor.class)

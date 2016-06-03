@@ -5,7 +5,7 @@
  */
 package br.com.isports.ejb.dao;
 
-import br.com.isports.entity.entities.Empresa;
+import br.com.apartida.entity.entities.Empresa;
 import javax.persistence.EntityManager;
 
 /**

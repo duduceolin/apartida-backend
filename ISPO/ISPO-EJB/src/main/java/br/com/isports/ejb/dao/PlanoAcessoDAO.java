@@ -5,8 +5,9 @@
  */
 package br.com.isports.ejb.dao;
 
-import br.com.isports.entity.entities.Funcionalidade;
-import br.com.isports.entity.entities.PlanoAcesso;
+import br.com.apartida.entity.dtos.FuncionalidadeMenuDTO;
+import br.com.apartida.entity.entities.Funcionalidade;
+import br.com.apartida.entity.entities.PlanoAcesso;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -17,14 +18,22 @@ import javax.persistence.TypedQuery;
  */
 public class PlanoAcessoDAO extends GenericDAO<PlanoAcesso, Long> {
 
-    public PlanoAcessoDAO(){
+    public PlanoAcessoDAO() {
         super(PlanoAcesso.class);
     }
-    
-    public List<Funcionalidade> pesquisarFuncionalidadesPeloPlano(EntityManager emNoXa, Long idPlano) {
 
-        TypedQuery<Funcionalidade> query = emNoXa.createNamedQuery(PlanoAcesso.PESQUISAR_FUNCIONALIDADES, Funcionalidade.class);
+    public List<FuncionalidadeMenuDTO> pesquisarFuncionalidadesPeloPlano(EntityManager emNoXa, Long idPlano) {
+
+        TypedQuery<FuncionalidadeMenuDTO> query = emNoXa.createNamedQuery(PlanoAcesso.PESQUISAR_FUNCIONALIDADES_PAI, FuncionalidadeMenuDTO.class);
         query.setParameter("idPlano", idPlano);
+
+        return query.getResultList();
+    }
+
+    public List<FuncionalidadeMenuDTO> pesquisarSubFuncionalidades(EntityManager emNoXa, Long idFuncionalidadePai) {
+
+        TypedQuery<FuncionalidadeMenuDTO> query = emNoXa.createNamedQuery(PlanoAcesso.PESQUISAR_SUBFUNCIONALIDADES, FuncionalidadeMenuDTO.class);
+        query.setParameter("idFuncionalidadePai", idFuncionalidadePai);
 
         return query.getResultList();
     }

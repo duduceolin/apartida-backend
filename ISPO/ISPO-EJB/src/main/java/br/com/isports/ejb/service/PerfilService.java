@@ -10,7 +10,7 @@ import br.com.isports.bean.exception.IspoException;
 import br.com.isports.bean.perfilservice.OutPesquisarPerfis;
 import br.com.isports.ejb.helper.PerfilHelper;
 import br.com.isports.ejb.interceptor.ExceptionInterceptor;
-import br.com.isports.iface.ejb.PerfilServiceLocal;
+import br.com.apartida.iface.ejb.PerfilServiceLocal;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.interceptor.Interceptors;

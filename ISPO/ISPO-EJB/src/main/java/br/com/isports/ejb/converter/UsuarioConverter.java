@@ -6,7 +6,7 @@
 package br.com.isports.ejb.converter;
 
 import br.com.isports.bean.usuarioservice.UsuarioDTO;
-import br.com.isports.entity.entities.Usuario;
+import br.com.apartida.entity.entities.Usuario;
 
 /**
  *
@@ -21,7 +21,6 @@ public abstract class UsuarioConverter extends AbstractConverter {
         dto.setLogin(entity.getLogin());
         dto.setNome(entity.getNome());
         dto.setSenha(entity.getSenha());
-        dto.setAdmin(entity.getAdmin());
 
         if (entity.getPerfil() != null) {
             dto.setPerfil(PerfilConverter.entityToDTO(entity.getPerfil()));
@@ -36,7 +35,6 @@ public abstract class UsuarioConverter extends AbstractConverter {
         if (dto.getId() != null) {
             entity.setId(dto.getId());
         }
-        entity.setAdmin(dto.getAdmin());
         entity.setLogin(dto.getLogin());
         entity.setNome(dto.getNome());
         entity.setPerfil(PerfilConverter.dtoToEntity(dto.getPerfil()));
