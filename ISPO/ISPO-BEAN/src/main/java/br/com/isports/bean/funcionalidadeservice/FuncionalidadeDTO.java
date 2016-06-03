@@ -13,12 +13,9 @@ import java.io.Serializable;
  */
 public class FuncionalidadeDTO implements Serializable {
 
-    private static final long serialVersionUID = 5361288547963813636L;
+    private static final long serialVersionUID = 5692973891333695030L;
 
     private Long idFuncionalidade;
-    private String nome;
-    private String url;
-    private Long idMenuPai;
 
     public Long getIdFuncionalidade() {
         return idFuncionalidade;
@@ -26,30 +23,6 @@ public class FuncionalidadeDTO implements Serializable {
 
     public void setIdFuncionalidade(Long idFuncionalidade) {
         this.idFuncionalidade = idFuncionalidade;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public Long getIdMenuPai() {
-        return idMenuPai;
-    }
-
-    public void setIdMenuPai(Long idMenuPai) {
-        this.idMenuPai = idMenuPai;
     }
 
 }
