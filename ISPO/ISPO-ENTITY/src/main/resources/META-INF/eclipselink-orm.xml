@@ -7,4 +7,9 @@
     <!-- Map Enum to Coded Values
          https://wiki.eclipse.org/EclipseLink/Examples/JPA/EnumToCode
     -->
+    <object-type-converter name="booleanConverter"
+                           object-type="java.lang.Boolean" data-type="java.lang.String">
+        <conversion-value object-value="true" data-value="S"/>
+        <conversion-value object-value="false" data-value="N"/>
+    </object-type-converter>
 </entity-mappings>

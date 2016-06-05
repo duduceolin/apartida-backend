@@ -12,8 +12,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import org.eclipse.persistence.annotations.Convert;
 
 /**
  *
@@ -21,10 +24,16 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "tbl_perfil")
+@NamedQueries({
+    @NamedQuery(name = Perfil.CONSULTAR_PERFIS, query = "SELECT p FROM Perfil p"
+            + " WHERE p.empresa.id = :idEmpresa")
+})
 public class Perfil extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = -6262765373363660496L;
 
+    public static final String CONSULTAR_PERFIS = "Perfil.consultarPerfis";
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_perfil", unique = true, nullable = false)
@@ -37,8 +46,9 @@ public class Perfil extends BaseEntity implements Serializable {
     @Column(name = "nome", nullable = false)
     private String nome;
 
+    @Convert("booleanConverter")
     @Column(name = "is_admin", nullable = false)
-    private String isAdmin;
+    private Boolean isAdmin;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "perfil", targetEntity = PerfilAcesso.class)
     private List<PerfilAcesso> acessos;
@@ -75,11 +85,11 @@ public class Perfil extends BaseEntity implements Serializable {
         this.acessos = acessos;
     }
 
-    public String getIsAdmin() {
+    public Boolean getIsAdmin() {
         return isAdmin;
     }
 
-    public void setIsAdmin(String isAdmin) {
+    public void setIsAdmin(Boolean isAdmin) {
         this.isAdmin = isAdmin;
     }
 

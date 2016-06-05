@@ -28,11 +28,11 @@ import javax.persistence.Table;
 @Table(name = "tbl_plano_acesso")
 @NamedQueries({
     @NamedQuery(name = PlanoAcesso.PESQUISAR_FUNCIONALIDADES_PAI, query = "SELECT new br.com.apartida.entity.dtos.FuncionalidadeMenuDTO"
-            + "(pa.funcionalidade.id, pa.funcionalidade.nome, pa.funcionalidade.url)"
+            + "(pa.funcionalidade.id, pa.funcionalidade.nome, pa.funcionalidade.url, pa.funcionalidade.icone)"
             + " FROM PlanoAcesso pa"
             + " WHERE pa.plano.id = :idPlano AND pa.funcionalidade.menuPai is null"),
         
-        @NamedQuery(name = PlanoAcesso.PESQUISAR_SUBFUNCIONALIDADES, query = "SELECT new br.com.apartida.entity.dtos.FuncionalidadeMenuDTO(f.id, f.nome, f.url)"
+        @NamedQuery(name = PlanoAcesso.PESQUISAR_SUBFUNCIONALIDADES, query = "SELECT new br.com.apartida.entity.dtos.FuncionalidadeMenuDTO(f.id, f.nome, f.url, f.icone)"
             + " FROM Funcionalidade f WHERE f.menuPai = :idFuncionalidadePai"
         )
 })

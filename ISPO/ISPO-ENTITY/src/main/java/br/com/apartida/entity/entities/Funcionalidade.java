@@ -30,9 +30,12 @@ public class Funcionalidade extends BaseEntity implements Serializable {
 
     @Column(name = "nome", nullable = false)
     private String nome;
-    
+
     @Column(name = "url")
     private String url;
+
+    @Column(name = "icone")
+    private String icone;
 
     @Column(name = "menu_pai")
     private Long menuPai;
@@ -78,6 +81,14 @@ public class Funcionalidade extends BaseEntity implements Serializable {
 
     public void setMenuPai(Long menuPai) {
         this.menuPai = menuPai;
+    }
+
+    public String getIcone() {
+        return icone;
+    }
+
+    public void setIcone(String icone) {
+        this.icone = icone;
     }
 
     @Override

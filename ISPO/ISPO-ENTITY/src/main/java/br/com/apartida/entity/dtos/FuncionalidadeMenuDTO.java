@@ -16,16 +16,18 @@ public class FuncionalidadeMenuDTO {
     private Long idFuncionalidade;
     private String nome;
     private String url;
+    private String icone;
     private List<FuncionalidadeMenuDTO> subFuncionalidades;
 
     public FuncionalidadeMenuDTO() {
 
     }
 
-    public FuncionalidadeMenuDTO(Long idFuncionalidade, String nome, String url) {
+    public FuncionalidadeMenuDTO(Long idFuncionalidade, String nome, String url, String icone) {
         this.idFuncionalidade = idFuncionalidade;
         this.nome = nome;
         this.url = url;
+        this.icone = icone;
     }
 
     public Long getIdFuncionalidade() {
@@ -58,6 +60,14 @@ public class FuncionalidadeMenuDTO {
 
     public void setSubFuncionalidades(List<FuncionalidadeMenuDTO> subFuncionalidades) {
         this.subFuncionalidades = subFuncionalidades;
+    }
+
+    public String getIcone() {
+        return icone;
+    }
+
+    public void setIcone(String icone) {
+        this.icone = icone;
     }
 
 }
