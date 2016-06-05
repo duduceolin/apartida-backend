@@ -1,4 +1,4 @@
-package br.com.isports.ejb.converter;
+package br.com.apartida.ejb.converter;
 
 /**
  *

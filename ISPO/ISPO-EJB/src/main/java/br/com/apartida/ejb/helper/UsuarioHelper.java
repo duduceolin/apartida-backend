@@ -1,15 +1,15 @@
-package br.com.isports.ejb.helper;
+package br.com.apartida.ejb.helper;
 
-import br.com.isports.bean.usuarioservice.InBuscarUsuario;
-import br.com.isports.bean.usuarioservice.InValidarUsuario;
-import br.com.isports.bean.usuarioservice.OutBuscarUsuario;
-import br.com.isports.bean.usuarioservice.OutValidarUsuario;
-import br.com.isports.bean.usuarioservice.UsuarioDTO;
-import br.com.isports.ejb.converter.UsuarioConverter;
-import br.com.isports.ejb.dao.UsuarioDAO;
-import br.com.isports.ejb.exception.ConfigExceptionFactory;
-import br.com.isports.ejb.exception.ConfigExceptions;
-import br.com.isports.bean.exception.IspoException;
+import br.com.apartida.bean.usuarioservice.InBuscarUsuario;
+import br.com.apartida.bean.usuarioservice.InValidarUsuario;
+import br.com.apartida.bean.usuarioservice.OutBuscarUsuario;
+import br.com.apartida.bean.usuarioservice.OutValidarUsuario;
+import br.com.apartida.bean.usuarioservice.UsuarioDTO;
+import br.com.apartida.ejb.converter.UsuarioConverter;
+import br.com.apartida.ejb.dao.UsuarioDAO;
+import br.com.apartida.ejb.exception.ConfigExceptionFactory;
+import br.com.apartida.ejb.exception.ConfigExceptions;
+import br.com.apartida.bean.exception.IspoException;
 import br.com.apartida.entity.entities.Usuario;
 import javax.persistence.EntityManager;
 

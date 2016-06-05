@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.isports.ejb.converter;
+package br.com.apartida.ejb.converter;
 
-import br.com.isports.bean.usuarioservice.UsuarioDTO;
+import br.com.apartida.bean.usuarioservice.UsuarioDTO;
 import br.com.apartida.entity.entities.Usuario;
 
 /**

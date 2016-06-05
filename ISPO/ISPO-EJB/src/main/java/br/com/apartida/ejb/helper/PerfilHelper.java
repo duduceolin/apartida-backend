@@ -3,16 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.isports.ejb.helper;
+package br.com.apartida.ejb.helper;
 
 import br.com.apartida.entity.entities.Perfil;
-import br.com.isports.bean.empresaservice.InPesquisarPelaEmpresa;
-import br.com.isports.bean.exception.IspoException;
-import br.com.isports.bean.perfilservice.PerfilFuncDTO;
-import br.com.isports.ejb.converter.PerfilConverter;
-import br.com.isports.ejb.dao.PerfilDAO;
-import br.com.isports.ejb.exception.ConfigExceptionFactory;
-import br.com.isports.ejb.exception.ConfigExceptions;
+import br.com.apartida.entity.entities.PerfilAcesso;
+import br.com.apartida.bean.empresaservice.InPesquisarPelaEmpresa;
+import br.com.apartida.bean.exception.IspoException;
+import br.com.apartida.bean.funcionalidadeservice.FuncionalidadeDTO;
+import br.com.apartida.bean.perfilservice.InCadastrarAlterarPerfil;
+import br.com.apartida.bean.perfilservice.PerfilFuncDTO;
+import br.com.apartida.ejb.converter.FuncionalidadeConverter;
+import br.com.apartida.ejb.converter.PerfilConverter;
+import br.com.apartida.ejb.dao.PerfilAcessoDAO;
+import br.com.apartida.ejb.dao.PerfilDAO;
+import br.com.apartida.ejb.exception.ConfigExceptionFactory;
+import br.com.apartida.ejb.exception.ConfigExceptions;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -37,6 +42,26 @@ public class PerfilHelper extends AbstractHelper {
         }
 
         return retorno;
+    }
+    
+    public Boolean cadastrarAlterarPerfil(EntityManager em, InCadastrarAlterarPerfil in) throws IspoException{
+        PerfilDAO perfilDAO = new PerfilDAO();
+        PerfilAcessoDAO perfilAcessoDAO = new PerfilAcessoDAO();
+        
+        if (null != in.getId()){
+            perfilAcessoDAO.removerPerfilAcesso(em, in.getId());
+        }
+        
+        Perfil perfil = perfilDAO.cadastrarAtualizarPerfil(em, PerfilConverter.cadastrarAlterarToEntity(in));
+        
+        for (FuncionalidadeDTO func : in.getAcessos()){
+            PerfilAcesso perfilAcesso = new PerfilAcesso();
+            perfilAcesso.setFuncionalidade(FuncionalidadeConverter.dtoToEntity(func));
+            perfilAcesso.setPerfil(perfil);
+            perfilAcessoDAO.cadastrarPerfilAcesso(em, perfilAcesso);
+        }
+        
+        return Boolean.TRUE;
     }
 
 }

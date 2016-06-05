@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.isports.ejb.service;
+package br.com.apartida.ejb.service;
 
-import br.com.isports.bean.usuarioservice.InBuscarUsuario;
-import br.com.isports.bean.usuarioservice.InValidarUsuario;
-import br.com.isports.bean.usuarioservice.OutBuscarUsuario;
-import br.com.isports.bean.usuarioservice.OutValidarUsuario;
-import br.com.isports.bean.exception.IspoException;
-import br.com.isports.ejb.helper.UsuarioHelper;
-import br.com.isports.ejb.interceptor.ExceptionInterceptor;
+import br.com.apartida.bean.usuarioservice.InBuscarUsuario;
+import br.com.apartida.bean.usuarioservice.InValidarUsuario;
+import br.com.apartida.bean.usuarioservice.OutBuscarUsuario;
+import br.com.apartida.bean.usuarioservice.OutValidarUsuario;
+import br.com.apartida.bean.exception.IspoException;
+import br.com.apartida.ejb.helper.UsuarioHelper;
+import br.com.apartida.ejb.interceptor.ExceptionInterceptor;
 import br.com.apartida.iface.ejb.UsuarioServiceLocal;
 import javax.ejb.Stateless;
 import javax.inject.Inject;

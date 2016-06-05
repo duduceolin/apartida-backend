@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.isports.ejb.service;
+package br.com.apartida.ejb.service;
 
-import br.com.isports.bean.exception.IspoException;
-import br.com.isports.bean.funcionalidadeservice.InPesquisarFuncionalidadesPlano;
-import br.com.isports.bean.funcionalidadeservice.OutPesquisarFuncionalidadesPlano;
-import br.com.isports.ejb.helper.FuncionalidadeHelper;
-import br.com.isports.ejb.interceptor.ExceptionInterceptor;
+import br.com.apartida.bean.exception.IspoException;
+import br.com.apartida.bean.funcionalidadeservice.InPesquisarFuncionalidadesPlano;
+import br.com.apartida.bean.funcionalidadeservice.OutPesquisarFuncionalidadesPlano;
+import br.com.apartida.ejb.helper.FuncionalidadeHelper;
+import br.com.apartida.ejb.interceptor.ExceptionInterceptor;
 import br.com.apartida.iface.ejb.FuncionalidadeServiceLocal;
 import javax.ejb.Stateless;
 import javax.interceptor.Interceptors;

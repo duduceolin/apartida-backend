@@ -3,22 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.isports.ejb.helper;
+package br.com.apartida.ejb.helper;
 
 import br.com.apartida.entity.dtos.FuncionalidadeMenuDTO;
-import br.com.isports.bean.empresaservice.InPesquisarPelaEmpresa;
-import br.com.isports.bean.exception.IspoException;
-import br.com.isports.bean.funcionalidadeservice.FuncionalidadeDTO;
-import br.com.isports.bean.funcionalidadeservice.InPesquisarFuncionalidades;
-import br.com.isports.bean.funcionalidadeservice.OutPesquisarFuncionalidades;
-import br.com.isports.ejb.converter.FuncionalidadeConverter;
-import br.com.isports.ejb.dao.EmpresaDAO;
-import br.com.isports.ejb.dao.PlanoAcessoDAO;
+import br.com.apartida.bean.empresaservice.InPesquisarPelaEmpresa;
+import br.com.apartida.bean.exception.IspoException;
+import br.com.apartida.bean.funcionalidadeservice.FuncionalidadeDTO;
+import br.com.apartida.bean.funcionalidadeservice.InPesquisarFuncionalidades;
+import br.com.apartida.bean.funcionalidadeservice.OutPesquisarFuncionalidades;
+import br.com.apartida.ejb.converter.FuncionalidadeConverter;
+import br.com.apartida.ejb.dao.EmpresaDAO;
+import br.com.apartida.ejb.dao.PlanoAcessoDAO;
 import br.com.apartida.entity.entities.Empresa;
 import br.com.apartida.entity.entities.Funcionalidade;
 import br.com.apartida.entity.entities.PlanoAcesso;
-import br.com.isports.bean.funcionalidadeservice.FuncionalidadeToMenuDTO;
-import br.com.isports.bean.funcionalidadeservice.OutPesquisarFuncionalidadesPlano;
+import br.com.apartida.bean.funcionalidadeservice.FuncionalidadeToMenuDTO;
+import br.com.apartida.bean.funcionalidadeservice.OutPesquisarFuncionalidadesPlano;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;

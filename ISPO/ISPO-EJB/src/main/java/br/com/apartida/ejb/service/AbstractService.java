@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.isports.ejb.service;
+package br.com.apartida.ejb.service;
 
-import br.com.isports.ejb.utils.AbstractDefinition;
+import br.com.apartida.ejb.utils.AbstractDefinition;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 /**

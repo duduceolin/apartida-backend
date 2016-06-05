@@ -1,4 +1,4 @@
-package br.com.isports.ejb.dao;
+package br.com.apartida.ejb.dao;
 
 import java.io.Serializable;
 import java.util.List;

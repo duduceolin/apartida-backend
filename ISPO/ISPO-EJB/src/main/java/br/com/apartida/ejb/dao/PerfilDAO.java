@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.isports.ejb.dao;
+package br.com.apartida.ejb.dao;
 
 import br.com.apartida.entity.entities.Perfil;
 import java.util.List;
@@ -26,6 +26,16 @@ public class PerfilDAO extends GenericDAO<Perfil, Long> {
         query.setFirstResult(primeiro);
         query.setMaxResults(tamanho);
         return query.getResultList();
+    }
+
+    public Perfil cadastrarAtualizarPerfil(EntityManager em, Perfil perfil) {
+        this.em = em;
+
+        if (perfil.getId() != null) {
+            return this.atualizar(perfil);
+        } else {
+            return this.salvar(perfil);
+        }
     }
 
 }
