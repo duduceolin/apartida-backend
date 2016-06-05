@@ -1,5 +1,13 @@
 USE isports_test;
 
+DROP TABLE tbl_perfil_acesso;
+DROP TABLE tbl_usuario;
+DROP TABLE tbl_perfil;
+DROP TABLE tbl_empresa;
+DROP TABLE tbl_plano_acesso;
+DROP TABLE tbl_plano;
+DROP TABLE tbl_funcionalidade;
+
 CREATE TABLE tbl_plano(
  id_plano BIGINT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL,
  nome VARCHAR(250) NOT NULL,
@@ -43,6 +51,7 @@ CREATE TABLE tbl_funcionalidade(
 id_funcionalidade BIGINT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL,
 nome VARCHAR(250) NOT NULL,
 url VARCHAR(250) NOT NULL,
+icone VARCHAR(250) NOT NULL,
 menu_pai BIGINT)ENGINE = INNODB;
 
 CREATE TABLE tbl_perfil_acesso(
