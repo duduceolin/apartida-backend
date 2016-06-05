@@ -19,6 +19,7 @@ public class FuncionalidadeToMenuDTO implements Serializable {
     private Long idFuncionalidade;
     private String nome;
     private String url;
+    private String icone;
     private List<FuncionalidadeToMenuDTO> subFuncionalidades;
 
     public FuncionalidadeToMenuDTO() {
@@ -68,6 +69,14 @@ public class FuncionalidadeToMenuDTO implements Serializable {
 
     public void setSubFuncionalidades(List<FuncionalidadeToMenuDTO> subFuncionalidades) {
         this.subFuncionalidades = subFuncionalidades;
+    }
+
+    public String getIcone() {
+        return icone;
+    }
+
+    public void setIcone(String icone) {
+        this.icone = icone;
     }
 
 }

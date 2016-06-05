@@ -5,8 +5,6 @@
  */
 package br.com.isports.bean.perfilservice;
 
-import br.com.isports.bean.empresaservice.EmpresaDTO;
-import br.com.isports.bean.funcionalidadeservice.FuncionalidadeDTO;
 import java.io.Serializable;
 import java.util.List;
 
@@ -14,15 +12,14 @@ import java.util.List;
  *
  * @author dudu
  */
-public class PerfilDTO implements Serializable {
+public class PerfilFuncDTO implements Serializable {
 
-    private static final long serialVersionUID = 8194413719368401925L;
+    private static final long serialVersionUID = 1861639498436005388L;
 
     private Long id;
-    private EmpresaDTO empresa;
     private String nome;
     private Boolean isAdmin;
-    private List<FuncionalidadeDTO> funcionalidades;
+    private List<FuncionalidadePerfilDTO> funcionalidades;
 
     public Long getId() {
         return id;
@@ -30,14 +27,6 @@ public class PerfilDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public EmpresaDTO getEmpresa() {
-        return empresa;
-    }
-
-    public void setEmpresa(EmpresaDTO empresa) {
-        this.empresa = empresa;
     }
 
     public String getNome() {
@@ -48,20 +37,20 @@ public class PerfilDTO implements Serializable {
         this.nome = nome;
     }
 
-    public List<FuncionalidadeDTO> getFuncionalidades() {
-        return funcionalidades;
-    }
-
-    public void setFuncionalidades(List<FuncionalidadeDTO> funcionalidades) {
-        this.funcionalidades = funcionalidades;
-    }
-
     public Boolean getIsAdmin() {
         return isAdmin;
     }
 
     public void setIsAdmin(Boolean isAdmin) {
         this.isAdmin = isAdmin;
+    }
+
+    public List<FuncionalidadePerfilDTO> getFuncionalidades() {
+        return funcionalidades;
+    }
+
+    public void setFuncionalidades(List<FuncionalidadePerfilDTO> funcionalidades) {
+        this.funcionalidades = funcionalidades;
     }
 
 }

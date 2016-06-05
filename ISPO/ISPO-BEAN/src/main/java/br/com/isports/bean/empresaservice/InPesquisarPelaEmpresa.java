@@ -5,6 +5,7 @@
  */
 package br.com.isports.bean.empresaservice;
 
+import br.com.isports.bean.utils.GenericPagination;
 import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -15,7 +16,7 @@ import javax.xml.bind.annotation.XmlElement;
  * @author dudu
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-public class InPesquisarPelaEmpresa implements Serializable {
+public class InPesquisarPelaEmpresa extends GenericPagination implements Serializable {
 
     private static final long serialVersionUID = -2360823171359906866L;
 

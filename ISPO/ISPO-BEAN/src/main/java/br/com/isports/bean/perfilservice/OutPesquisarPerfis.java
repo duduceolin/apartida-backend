@@ -16,14 +16,14 @@ public class OutPesquisarPerfis implements Serializable {
 
     private static final long serialVersionUID = -7007607915769152655L;
 
-    private List<PerfilDTO> perfil;
+    private List<PerfilFuncDTO> perfis;
 
-    public List<PerfilDTO> getPerfil() {
-        return perfil;
+    public List<PerfilFuncDTO> getPerfis() {
+        return perfis;
     }
 
-    public void setPerfil(List<PerfilDTO> perfil) {
-        this.perfil = perfil;
+    public void setPerfis(List<PerfilFuncDTO> perfis) {
+        this.perfis = perfis;
     }
 
 }
