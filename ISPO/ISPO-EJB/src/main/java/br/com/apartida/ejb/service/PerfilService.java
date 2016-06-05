@@ -53,7 +53,7 @@ public class PerfilService extends AbstractService implements PerfilServiceLocal
     @Transactional
     @WebMethod(operationName = "cadastrarAlterarPerfil")
     @WebResult(name = "status")
-    public OutCadastrarAlterarPerfil cadastrarAlterarPerfil(InCadastrarAlterarPerfil inCadastrar) throws IspoException {
+    public OutCadastrarAlterarPerfil cadastrarAlterarPerfil(@XmlElement(required = true) @WebParam(name = "inCadastrarAlterarPerfil") InCadastrarAlterarPerfil inCadastrar) throws IspoException {
         OutCadastrarAlterarPerfil out = new OutCadastrarAlterarPerfil();
         out.setStatus(new PerfilHelper().cadastrarAlterarPerfil(em, inCadastrar));
         return out;

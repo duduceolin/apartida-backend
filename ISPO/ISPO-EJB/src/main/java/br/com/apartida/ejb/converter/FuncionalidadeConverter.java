@@ -21,6 +21,11 @@ public abstract class FuncionalidadeConverter extends AbstractConverter {
         FuncionalidadeDTO dto = new FuncionalidadeDTO();
         
         dto.setIdFuncionalidade(entity.getId());
+        if (null != entity.getMenuPai()) {
+            dto.setIdMenuPai(entity.getMenuPai());
+        }
+        dto.setIcone(entity.getIcone());
+        dto.setNome(entity.getNome());
         
         return dto;
     }
@@ -54,5 +59,4 @@ public abstract class FuncionalidadeConverter extends AbstractConverter {
         return dto;
     }
     
-
 }
