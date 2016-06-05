@@ -16,39 +16,43 @@ import java.util.ArrayList;
  * @author dudu
  */
 public abstract class FuncionalidadeConverter extends AbstractConverter {
-
+    
     public static FuncionalidadeDTO entityToDTO(Funcionalidade entity) {
         FuncionalidadeDTO dto = new FuncionalidadeDTO();
-
+        
         dto.setIdFuncionalidade(entity.getId());
-
+        
         return dto;
     }
-
+    
     public static Funcionalidade dtoToEntity(FuncionalidadeDTO dto) {
         Funcionalidade entity = new Funcionalidade();
-
+        
         if (dto.getIdFuncionalidade() != null) {
             entity.setId(dto.getIdFuncionalidade());
         }
-
+        
         return entity;
     }
-
+    
     public static FuncionalidadeToMenuDTO converterMenuToDTO(FuncionalidadeMenuDTO menu) {
         FuncionalidadeToMenuDTO dto = new FuncionalidadeToMenuDTO();
-
+        
         dto.setIdFuncionalidade(menu.getIdFuncionalidade());
         dto.setNome(menu.getNome());
         dto.setUrl(menu.getUrl());
+        dto.setIcone(menu.getIcone());
+        
         if (menu.getSubFuncionalidades() != null) {
-
+            
             dto.setSubFuncionalidades(new ArrayList<FuncionalidadeToMenuDTO>());
-
+            
             for (FuncionalidadeMenuDTO func : menu.getSubFuncionalidades()) {
                 dto.getSubFuncionalidades().add(converterMenuToDTO(func));
             }
         }
         return dto;
     }
+    
+
 }

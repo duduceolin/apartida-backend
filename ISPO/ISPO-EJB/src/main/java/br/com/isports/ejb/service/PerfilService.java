@@ -41,7 +41,9 @@ public class PerfilService extends AbstractService implements PerfilServiceLocal
     @WebMethod(operationName = "pesquisarPerfisPelaEmpresa")
     @WebResult(name = "perfis")
     public OutPesquisarPerfis pesquisarPerfisEmpresa(@XmlElement(required = true) @WebParam(name = "inPesquisarPerfis") InPesquisarPelaEmpresa inPesquisar) throws IspoException {
-        return new PerfilHelper().pesquisarPerfis(emNoXa, inPesquisar.getIdEmpresa());
+        OutPesquisarPerfis out = new OutPesquisarPerfis();
+        out.setPerfis(new PerfilHelper().pesquisarPerfis(emNoXa, inPesquisar));
+        return out;
     }
 
 }
