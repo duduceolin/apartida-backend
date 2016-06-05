@@ -86,7 +86,7 @@ public abstract class PerfilConverter extends AbstractConverter {
             PerfilFuncDTO perf = new PerfilFuncDTO();
             perf.setFuncionalidades(converterListaFuncionalidades(perfil.getAcessos()));
             perf.setId(perfil.getId());
-            perf.setIsAdmin(perfil.getIsAdmin());
+            perf.setAdmin(perfil.getIsAdmin());
             perf.setNome(perfil.getNome());
             retorno.add(perf);
         }
