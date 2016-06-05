@@ -1,10 +1,12 @@
 package br.com.apartida.entity.entities;
 
+import br.com.apartida.entity.converters.BooleanToStringConverter;
 import br.com.apartida.entity.utils.BaseEntity;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -16,7 +18,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import org.eclipse.persistence.annotations.Convert;
 
 /**
  *
@@ -33,7 +34,7 @@ public class Perfil extends BaseEntity implements Serializable {
     private static final long serialVersionUID = -6262765373363660496L;
 
     public static final String CONSULTAR_PERFIS = "Perfil.consultarPerfis";
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_perfil", unique = true, nullable = false)
@@ -46,7 +47,7 @@ public class Perfil extends BaseEntity implements Serializable {
     @Column(name = "nome", nullable = false)
     private String nome;
 
-    @Convert("booleanConverter")
+    @Convert(converter = BooleanToStringConverter.class)
     @Column(name = "is_admin", nullable = false)
     private Boolean isAdmin;
 
