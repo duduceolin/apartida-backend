@@ -5,9 +5,9 @@
  */
 package br.com.apartida.iface.ejb;
 
-import br.com.isports.bean.usuarioservice.InBuscarUsuario;
-import br.com.isports.bean.usuarioservice.OutBuscarUsuario;
-import br.com.isports.bean.exception.IspoException;
+import br.com.apartida.bean.usuarioservice.InBuscarUsuario;
+import br.com.apartida.bean.usuarioservice.OutBuscarUsuario;
+import br.com.apartida.bean.exception.IspoException;
 
 /**
  *

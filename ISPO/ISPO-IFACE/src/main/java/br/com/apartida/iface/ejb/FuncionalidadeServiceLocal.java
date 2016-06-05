@@ -5,9 +5,9 @@
  */
 package br.com.apartida.iface.ejb;
 
-import br.com.isports.bean.exception.IspoException;
-import br.com.isports.bean.funcionalidadeservice.InPesquisarFuncionalidadesPlano;
-import br.com.isports.bean.funcionalidadeservice.OutPesquisarFuncionalidadesPlano;
+import br.com.apartida.bean.exception.IspoException;
+import br.com.apartida.bean.funcionalidadeservice.InPesquisarFuncionalidadesPlano;
+import br.com.apartida.bean.funcionalidadeservice.OutPesquisarFuncionalidadesPlano;
 
 /**
  *
