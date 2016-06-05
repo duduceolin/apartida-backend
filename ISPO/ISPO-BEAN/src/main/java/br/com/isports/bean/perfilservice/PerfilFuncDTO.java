@@ -18,7 +18,7 @@ public class PerfilFuncDTO implements Serializable {
 
     private Long id;
     private String nome;
-    private Boolean isAdmin;
+    private Boolean admin;
     private List<FuncionalidadePerfilDTO> funcionalidades;
 
     public Long getId() {
@@ -37,12 +37,12 @@ public class PerfilFuncDTO implements Serializable {
         this.nome = nome;
     }
 
-    public Boolean getIsAdmin() {
-        return isAdmin;
+    public Boolean getAdmin() {
+        return admin;
     }
 
-    public void setIsAdmin(Boolean isAdmin) {
-        this.isAdmin = isAdmin;
+    public void setAdmin(Boolean admin) {
+        this.admin = admin;
     }
 
     public List<FuncionalidadePerfilDTO> getFuncionalidades() {
