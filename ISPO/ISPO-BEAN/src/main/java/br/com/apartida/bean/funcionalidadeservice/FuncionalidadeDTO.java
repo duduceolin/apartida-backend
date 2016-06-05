@@ -16,6 +16,9 @@ public class FuncionalidadeDTO implements Serializable {
     private static final long serialVersionUID = 5692973891333695030L;
 
     private Long idFuncionalidade;
+    private Long idMenuPai;
+    private String nome;
+    private String icone;
 
     public Long getIdFuncionalidade() {
         return idFuncionalidade;
@@ -23,6 +26,30 @@ public class FuncionalidadeDTO implements Serializable {
 
     public void setIdFuncionalidade(Long idFuncionalidade) {
         this.idFuncionalidade = idFuncionalidade;
+    }
+
+    public Long getIdMenuPai() {
+        return idMenuPai;
+    }
+
+    public void setIdMenuPai(Long idMenuPai) {
+        this.idMenuPai = idMenuPai;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getIcone() {
+        return icone;
+    }
+
+    public void setIcone(String icone) {
+        this.icone = icone;
     }
 
 }
