@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
@@ -19,8 +21,14 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "tbl_perfil_acesso")
+@NamedQueries({
+    @NamedQuery(name = PerfilAcesso.REMOVER_ACESSOS, query = "DELETE FROM PerfilAcesso pa"
+            + " WHERE pa.perfil.id = :idPerfil")
+})
 public class PerfilAcesso extends BaseEntity implements Serializable {
 
+    public static final String REMOVER_ACESSOS = "PerfilAcesso.removerAcessos";
+    
     private static final long serialVersionUID = -6459110208424044486L;
 
     @Id

@@ -31,17 +31,17 @@ import javax.persistence.Table;
             + "(pa.funcionalidade.id, pa.funcionalidade.nome, pa.funcionalidade.url, pa.funcionalidade.icone)"
             + " FROM PlanoAcesso pa"
             + " WHERE pa.plano.id = :idPlano AND pa.funcionalidade.menuPai is null"),
-        
-        @NamedQuery(name = PlanoAcesso.PESQUISAR_SUBFUNCIONALIDADES, query = "SELECT new br.com.apartida.entity.dtos.FuncionalidadeMenuDTO(f.id, f.nome, f.url, f.icone)"
+
+    @NamedQuery(name = PlanoAcesso.PESQUISAR_SUBFUNCIONALIDADES, query = "SELECT new br.com.apartida.entity.dtos.FuncionalidadeMenuDTO(f.id, f.nome, f.url, f.icone)"
             + " FROM Funcionalidade f WHERE f.menuPai = :idFuncionalidadePai"
-        )
+    )
 })
 public class PlanoAcesso extends BaseEntity implements Serializable {
 
     public static final String PESQUISAR_FUNCIONALIDADES_PAI = "PlanoAcesso.pesquisarFuncionalidadesPai";
 
-     public static final String PESQUISAR_SUBFUNCIONALIDADES = "PlanoAcesso.pesquisarSubFuncionalidades";
-    
+    public static final String PESQUISAR_SUBFUNCIONALIDADES = "PlanoAcesso.pesquisarSubFuncionalidades";
+
     private static final long serialVersionUID = 5888091697452093919L;
 
     @Id
