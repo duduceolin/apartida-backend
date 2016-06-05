@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.isports.bean.planoservice;
+package br.com.apartida.bean.planoservice;
 
-import br.com.isports.bean.funcionalidadeservice.FuncionalidadeDTO;
+import br.com.apartida.bean.funcionalidadeservice.FuncionalidadeDTO;
 import java.io.Serializable;
 import java.util.List;
 

@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.isports.bean.usuarioservice;
+package br.com.apartida.bean.usuarioservice;
 
-import br.com.isports.bean.perfilservice.PerfilDTO;
+import br.com.apartida.bean.perfilservice.PerfilDTO;
 import java.io.Serializable;
 
 /**

@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.isports.bean.perfilservice;
+package br.com.apartida.bean.perfilservice;
 
-import br.com.isports.bean.empresaservice.EmpresaDTO;
-import br.com.isports.bean.funcionalidadeservice.FuncionalidadeDTO;
+import br.com.apartida.bean.empresaservice.EmpresaDTO;
+import br.com.apartida.bean.funcionalidadeservice.FuncionalidadeDTO;
 import java.io.Serializable;
 import java.util.List;
 

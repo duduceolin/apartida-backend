@@ -1,4 +1,4 @@
-package br.com.isports.bean.usuarioservice;
+package br.com.apartida.bean.usuarioservice;
 
 import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;

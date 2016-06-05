@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.isports.bean.empresaservice;
+package br.com.apartida.bean.empresaservice;
 
-import br.com.isports.bean.utils.GenericPagination;
+import br.com.apartida.bean.utils.GenericPagination;
 import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

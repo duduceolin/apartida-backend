@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.isports.bean.usuarioservice;
+package br.com.apartida.bean.usuarioservice;
 
 import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;

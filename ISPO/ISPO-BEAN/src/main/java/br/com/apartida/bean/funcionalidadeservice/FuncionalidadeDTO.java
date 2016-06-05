@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.isports.bean.funcionalidadeservice;
+package br.com.apartida.bean.funcionalidadeservice;
 
 import java.io.Serializable;
 

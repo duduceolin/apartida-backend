@@ -5,6 +5,7 @@
  */
 package br.com.apartida.bean.perfilservice;
 
+import br.com.apartida.bean.funcionalidadeservice.FuncionalidadeDTO;
 import java.io.Serializable;
 import java.util.List;
 
@@ -12,14 +13,15 @@ import java.util.List;
  *
  * @author dudu
  */
-public class PerfilFuncDTO implements Serializable {
+public class InCadastrarAlterarPerfil implements Serializable {
 
-    private static final long serialVersionUID = 1861639498436005388L;
+    private static final long serialVersionUID = 997344015999353786L;
 
     private Long id;
+    private Long idEmpresa;
     private String nome;
     private Boolean admin;
-    private List<FuncionalidadePerfilDTO> funcionalidades;
+    private List<FuncionalidadeDTO> acessos;
 
     public Long getId() {
         return id;
@@ -27,6 +29,14 @@ public class PerfilFuncDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getIdEmpresa() {
+        return idEmpresa;
+    }
+
+    public void setIdEmpresa(Long idEmpresa) {
+        this.idEmpresa = idEmpresa;
     }
 
     public String getNome() {
@@ -45,12 +55,12 @@ public class PerfilFuncDTO implements Serializable {
         this.admin = admin;
     }
 
-    public List<FuncionalidadePerfilDTO> getFuncionalidades() {
-        return funcionalidades;
+    public List<FuncionalidadeDTO> getAcessos() {
+        return acessos;
     }
 
-    public void setFuncionalidades(List<FuncionalidadePerfilDTO> funcionalidades) {
-        this.funcionalidades = funcionalidades;
+    public void setAcessos(List<FuncionalidadeDTO> acessos) {
+        this.acessos = acessos;
     }
 
 }
